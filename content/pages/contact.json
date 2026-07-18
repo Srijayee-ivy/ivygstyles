@@ -1,0 +1,16 @@
+{
+  "eyebrow": "Get in Touch",
+  "heading": "Tell me what you're building.",
+  "subtext": "Whether it's a content brief, a partnership idea, or a styling question — select what fits best and send a short note. I read every message myself.",
+  "inquiry_types": ["Writing / Content", "Brand Partnership", "Styling Session"],
+  "form_note": "This opens a pre-filled email in your own email app — nothing is stored or sent from this page directly.",
+  "faq_eyebrow": "Good to Know",
+  "faq_heading": "FAQ",
+  "faq": [
+    { "question": "What services do you offer?", "answer": "Three things, working together: content strategy and copywriting for fashion/luxury brands, brand partnership collaborations, and one-on-one personal styling guidance." },
+    { "question": "How do I start a project with you?", "answer": "Select the inquiry type above and send a short brief — what you're working on, what you need, and your timeline. I typically respond within 24–48 hours." },
+    { "question": "Do you work with brands outside fashion and luxury?", "answer": "My core expertise is fashion, luxury, and lifestyle — but I'm open to adjacent spaces (entertainment, sports, beauty) where strategic content and brand voice matter just as much." },
+    { "question": "What does a styling session actually involve?", "answer": "A conversation about your current wardrobe, your goals, and your lifestyle, followed by practical, personalized guidance — not a generic style quiz." },
+    { "question": "Can we collaborate on an ongoing basis?", "answer": "Yes — ongoing partnerships are actively welcome, whether that's a content retainer, a recurring brand collaboration, or continued styling support." }
+  ]
+}

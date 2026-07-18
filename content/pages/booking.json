@@ -1,0 +1,14 @@
+{
+  "eyebrow": "Book a Session",
+  "heading": "Let's find a time.",
+  "subtext": "Pick what you're booking, choose a time that works, and fill in a few details beforehand so our first conversation isn't spent on logistics.",
+  "options": [
+    { "name": "Discovery Call — Brand / Content Work", "duration": "20 min", "description": "For brands exploring content strategy or writing work." },
+    { "name": "Personal Styling Session", "duration": "45 min", "description": "For individuals starting a styling engagement." }
+  ],
+  "scheduler_note": "The calendar below is powered by Cal.com — free to set up, no account needed for you to book. If it isn't showing anything, it means a scheduling link hasn't been connected yet; use the contact page instead.",
+  "scheduler_embed_url": "",
+  "intake_heading": "Before we talk",
+  "intake_note": "Filling this in isn't required to book — but it means our call starts from context instead of introductions.",
+  "form_note": "This opens a pre-filled email with your answers — nothing is stored on this page."
+}

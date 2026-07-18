@@ -1,0 +1,15 @@
+{
+  "name": "ivygstyles-site",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Srijayee | The Ivygstyles Edit — static site, built with Eleventy from Decap CMS content.",
+  "scripts": {
+    "build": "eleventy",
+    "serve": "eleventy --serve"
+  },
+  "devDependencies": {
+    "@11ty/eleventy": "^3.0.0",
+    "gray-matter": "^4.0.3",
+    "markdown-it": "^14.1.0"
+  }
+}

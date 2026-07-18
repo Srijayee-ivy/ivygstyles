@@ -1,0 +1,14 @@
+{
+  "eyebrow": "About",
+  "heading_main": "A content strategist",
+  "heading_emphasis": "with a stylist's eye.",
+  "portrait": "/content/images/about-portrait.jpg",
+  "bio": "I'm Srijayee — a fashion and luxury content strategist working at the intersection of brand storytelling, SEO-driven copywriting, and personal styling. My work has shaped digital narrative for heritage brands including Manyavar, Taneira, and Tanishq.\n\nI hold a Fashion & Luxury Brand Management credential from Bocconi University, and I bring that same brand-level thinking to every project — whether it's a product description, a partnership pitch, or someone's personal wardrobe.\n\nBefore this, I worked in content at Amazon — an unconventional path into fashion that I write about openly, because I think how you get somewhere matters as much as where you land.",
+  "portfolio_link_label": "View my full portfolio →",
+  "credentials_eyebrow": "Credentials & Focus",
+  "credentials": [
+    { "title": "Education", "description": "Fashion & Luxury Brand Management, Bocconi University." },
+    { "title": "Client Work", "description": "Manyavar, Taneira, Tanishq, Candere, Furla (via Just In Time), and Shoppers Stop, delivered via Textmercato." },
+    { "title": "Focus Areas", "description": "Luxury brand analysis, fashion trend reporting, content strategy, and personal styling." }
+  ]
+}

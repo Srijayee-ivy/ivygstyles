@@ -1,0 +1,20 @@
+{
+  "eyebrow": "Elsewhere",
+  "heading": "The visual world behind the writing.",
+  "subtext": "Every piece I write starts with an image — a fabric, a silhouette, a mood. This is where that thinking lives out loud, pinned and posted in real time.",
+  "share_text": "The visual world behind the writing — follow along on Pinterest, Instagram, and Facebook.",
+  "feeds_eyebrow": "Follow Along — Three feeds, one point of view.",
+  "feeds": [
+    { "platform": "Pinterest", "handle": "@ivygstyles", "description": "Mood boards, capsule wardrobes, and the reference images behind every piece of styling advice.", "link_label": "Visit Board →", "link_href": "https://pinterest.com/ivygstyles" },
+    { "platform": "Instagram", "handle": "@ivygstyles", "description": "Editorial snapshots, client work in progress, and the day-to-day of a fashion content strategist.", "link_label": "Visit Profile →", "link_href": "https://instagram.com/ivygstyles" },
+    { "platform": "Facebook", "handle": "The Ivygstyles Edit", "description": "Longer updates, published case studies, and announcements as new client work goes live.", "link_label": "Visit Page →", "link_href": "https://www.facebook.com/share/1D6MDeZsh7/" }
+  ],
+  "pinterest_boards_heading": "Pinterest, by Content Pillar",
+  "pinterest_boards_note": "Each board maps to a content pillar and links back to the matching Journal articles or case studies.",
+  "pinterest_boards": [
+    { "board_name": "Luxury Brand Moodboards", "pillar": "Luxury Brand Analysis", "url": "https://pinterest.com/ivygstyles", "related_label": "Read Luxury Brand Analysis →", "related_href": "/luxury-brand-analysis/" },
+    { "board_name": "Trend Radar", "pillar": "Fashion Trend Reports", "url": "https://pinterest.com/ivygstyles", "related_label": "Read Trend Reports →", "related_href": "/trend-reports/" },
+    { "board_name": "Capsule Wardrobe Edits", "pillar": "Styling & Editorial", "url": "https://pinterest.com/ivygstyles", "related_label": "See Styling Work →", "related_href": "/styling.html" },
+    { "board_name": "Client Work Inspiration", "pillar": "Content Strategy for Fashion Brands", "url": "https://pinterest.com/ivygstyles", "related_label": "See Client Work →", "related_href": "/client-work.html" }
+  ]
+}

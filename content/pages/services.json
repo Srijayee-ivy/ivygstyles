@@ -1,0 +1,42 @@
+{
+  "eyebrow": "Services",
+  "heading": "Three ways to work together, in depth.",
+  "subtext": "Each service is scoped to the project — here's how each one actually works, from first message to delivery.",
+  "services": [
+    {
+      "name": "Fashion & Luxury Content Strategy",
+      "summary": "SEO-driven, brand-voice-accurate content planning for fashion and luxury e-commerce.",
+      "ideal_for": "Brands who need a content plan, not just individual pieces — category pages, keyword strategy, editorial calendars.",
+      "process": ["Discovery call to understand your brand voice and goals", "Keyword and competitive research", "Content plan with priorities and timeline", "Ongoing delivery against the plan"],
+      "pricing_note": "Scoped per project after a discovery call — retainers available for ongoing work.",
+      "faq": [
+        { "question": "How long does a typical engagement run?", "answer": "Most content strategy projects run 4-8 weeks for the initial plan, with many clients continuing on a monthly retainer afterward." },
+        { "question": "Do you write the content too, or just the strategy?", "answer": "Both, if you want — strategy and writing are offered together or separately depending on your team's needs." }
+      ]
+    },
+    {
+      "name": "Fashion & Luxury Writing",
+      "summary": "Product narrative, category copy, and editorial content for fashion and luxury brands.",
+      "ideal_for": "Brands who have a content plan already and need polished, on-brand copy delivered against a brief.",
+      "process": ["Brief review and clarifying questions", "First draft delivered against your timeline", "One round of revisions included", "Final delivery in your preferred format"],
+      "pricing_note": "Priced per piece or per word count band — ask for a quote against your specific brief.",
+      "faq": [
+        { "question": "What's your typical turnaround?", "answer": "24-48 hours for shorter pieces (product copy, listicles); 1-2 weeks for long-form features, depending on research depth." },
+        { "question": "Can you match an existing brand voice?", "answer": "Yes — send existing brand guidelines or sample copy and I'll work within that voice, not just my own." }
+      ]
+    },
+    {
+      "name": "Personal Styling",
+      "summary": "One-on-one styling support — wardrobe edits, capsule building, and personal aesthetic direction.",
+      "ideal_for": "Individuals who want practical, personalized guidance rather than a generic style quiz.",
+      "process": ["Intake conversation about your current wardrobe, goals, and lifestyle", "Wardrobe or shopping guidance tailored to you", "Follow-up summary you can reference", "Optional ongoing styling support"],
+      "pricing_note": "Single sessions and ongoing packages both available — details shared after the intake conversation.",
+      "faq": [
+        { "question": "Is this in-person or remote?", "answer": "Remote — most sessions run over video call, with guidance and shopping links sent afterward." },
+        { "question": "Do I need to buy new clothes for this to be useful?", "answer": "Not necessarily — a lot of the value is in re-seeing what you already own. New pieces are recommended only where they genuinely help." }
+      ]
+    }
+  ],
+  "closing_cta_label": "Start a Conversation",
+  "closing_cta_href": "/contact.html"
+}

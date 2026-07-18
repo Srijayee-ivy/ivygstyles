@@ -1,0 +1,389 @@
+backend:
+  name: github
+  repo: srijayee-ivy/ivygstyles
+  branch: main
+  base_url: https://ivygstyles.pages.dev
+  auth_endpoint: api/auth
+
+publish_mode: editorial_workflow
+
+media_folder: "content/images"
+public_folder: "/content/images"
+
+collections:
+  - name: "posts"
+    label: "Blog Posts"
+    folder: "content/posts"
+    create: true
+    slug: "{{slug}}"
+    identifier_field: title
+    fields:
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Publish Date", name: "date", widget: "datetime" }
+      - label: "Category"
+        name: "category"
+        widget: "select"
+        options:
+          - "Luxury Brand Analysis"
+          - "Fashion Trend Reports"
+          - "Content Strategy for Fashion Brands"
+          - "Styling & Editorial"
+          - "Writing Samples"
+          - "Beauty"
+          - "Career"
+      - { label: "Cover Image", name: "image", widget: "image", required: false }
+      - { label: "Excerpt", name: "excerpt", widget: "text", required: false, hint: "One or two sentences shown on the blog list page." }
+      - { label: "Body", name: "body", widget: "markdown" }
+
+  - name: "case_studies"
+    label: "Client Work — Case Studies"
+    folder: "content/case-studies"
+    create: true
+    slug: "{{slug}}"
+    identifier_field: client
+    summary: "{{client}} — {{title}}"
+    fields:
+      - { label: "Client Name", name: "client", widget: "string", hint: "e.g. \"Furla — via Just In Time\"" }
+      - { label: "Case Study Title", name: "title", widget: "string" }
+      - { label: "Description (intro summary)", name: "description", widget: "text" }
+      - { label: "Challenge", name: "challenge", widget: "text", required: false }
+      - { label: "Approach", name: "approach", widget: "text", required: false }
+      - { label: "Outcome", name: "outcome", widget: "text", required: false }
+      - { label: "Link (optional external override)", name: "link", widget: "string", required: false, default: "/blog/", hint: "Not used for the main case study page link anymore — each case study gets its own page automatically at /client-work/[slug]/." }
+      - { label: "Thumbnail Image", name: "image", widget: "image", required: false }
+      - { label: "Show on Homepage (max 3 shown)", name: "featured", widget: "boolean", default: false }
+      - { label: "Display Order", name: "order", widget: "number", value_type: "int", default: 10 }
+      - { label: "Homepage Highlight Tag", name: "home_tag", widget: "string", required: false, hint: "Optional short callout shown only on the homepage, e.g. \"Verified Result: #3 on Google\"" }
+      - { label: "SEO — Meta Title (optional override)", name: "meta_title", widget: "string", required: false, hint: "Leave blank to use the case study title automatically." }
+      - { label: "SEO — Meta Description (optional override)", name: "meta_description", widget: "text", required: false, hint: "Leave blank to use the description automatically." }
+
+  - name: "looks"
+    label: "Styling — Looks"
+    folder: "content/looks"
+    create: true
+    slug: "{{slug}}"
+    identifier_field: title
+    fields:
+      - { label: "Title / Caption", name: "title", widget: "string", required: false }
+      - { label: "Image", name: "image", widget: "image", required: false, hint: "Leave blank to show a dark placeholder tile instead." }
+      - { label: "Display Order", name: "order", widget: "number", value_type: "int", default: 10 }
+
+  - name: "testimonials"
+    label: "Testimonials"
+    folder: "content/testimonials"
+    create: true
+    slug: "{{slug}}"
+    identifier_field: client_name
+    summary: "{{client_name}} — {{quote}}"
+    fields:
+      - { label: "Client Name", name: "client_name", widget: "string" }
+      - { label: "Role / Company (optional)", name: "role", widget: "string", required: false }
+      - { label: "Quote", name: "quote", widget: "text" }
+      - { label: "Related Case Study", name: "project_ref", widget: "string", required: false, hint: "Type the exact Client Name from a Case Study to show this quote on that case study's page too (leave blank to skip)." }
+      - { label: "Display Order", name: "order", widget: "number", value_type: "int", default: 10 }
+
+  - name: "trend_reports"
+    label: "Trend Reports"
+    folder: "content/trend-reports"
+    create: true
+    slug: "{{slug}}"
+    identifier_field: title
+    fields:
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Date", name: "date", widget: "datetime" }
+      - { label: "Executive Summary", name: "summary", widget: "text" }
+      - label: "Emerging Trends"
+        name: "emerging_trends"
+        widget: "list"
+        field: { label: "Trend", name: "trend", widget: "string" }
+      - { label: "Market Observations", name: "market_observations", widget: "text", required: false }
+      - { label: "Strategic Implications", name: "strategic_implications", widget: "text", required: false }
+      - { label: "Cover Image", name: "image", widget: "image", required: false }
+      - { label: "Display Order", name: "order", widget: "number", value_type: "int", default: 10 }
+
+  - name: "luxury_analyses"
+    label: "Luxury Brand Analysis"
+    folder: "content/luxury-analyses"
+    create: true
+    slug: "{{slug}}"
+    identifier_field: brand_name
+    summary: "{{brand_name}} — {{title}}"
+    fields:
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Brand Name", name: "brand_name", widget: "string" }
+      - { label: "Date", name: "date", widget: "datetime" }
+      - { label: "Overview", name: "overview", widget: "text" }
+      - { label: "History", name: "history", widget: "text", required: false }
+      - { label: "Positioning", name: "positioning", widget: "text", required: false }
+      - { label: "Visual Identity", name: "visual_identity", widget: "text", required: false }
+      - { label: "Campaign Review", name: "campaign_review", widget: "text", required: false }
+      - { label: "Digital Presence", name: "digital_presence", widget: "text", required: false }
+      - label: "Key Insights"
+        name: "key_insights"
+        widget: "list"
+        field: { label: "Insight", name: "insight", widget: "string" }
+      - { label: "Conclusion", name: "conclusion", widget: "text", required: false }
+      - { label: "Cover Image", name: "image", widget: "image", required: false }
+      - { label: "Display Order", name: "order", widget: "number", value_type: "int", default: 10 }
+
+  - name: "writing_samples"
+    label: "Writing Samples"
+    folder: "content/writing-samples"
+    create: true
+    slug: "{{slug}}"
+    identifier_field: title
+    fields:
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Publication Type", name: "publication_type", widget: "string", hint: "e.g. \"SEO Listicle\", \"E-commerce Product Copy\"" }
+      - { label: "Context", name: "context", widget: "text" }
+      - { label: "Excerpt", name: "excerpt", widget: "text" }
+      - { label: "Objective", name: "objective", widget: "text", required: false }
+      - label: "Skills Demonstrated"
+        name: "skills_demonstrated"
+        widget: "list"
+        field: { label: "Skill", name: "skill", widget: "string" }
+      - { label: "External Link (optional)", name: "external_link", widget: "string", required: false }
+      - { label: "Cover Image", name: "image", widget: "image", required: false }
+      - { label: "Display Order", name: "order", widget: "number", value_type: "int", default: 10 }
+
+  - name: "settings"
+    label: "Site Settings"
+    files:
+      - name: "social"
+        label: "Social Links & Contact"
+        file: "content/settings/social.json"
+        format: "json"
+        fields:
+          - { label: "Pinterest URL", name: "pinterest_url", widget: "string" }
+          - { label: "Pinterest Handle", name: "pinterest_handle", widget: "string" }
+          - { label: "Instagram URL", name: "instagram_url", widget: "string" }
+          - { label: "Instagram Handle", name: "instagram_handle", widget: "string" }
+          - { label: "Facebook URL", name: "facebook_url", widget: "string" }
+          - { label: "LinkedIn URL", name: "linkedin_url", widget: "string" }
+          - { label: "Portfolio URL", name: "portfolio_url", widget: "string" }
+          - { label: "Contact Email", name: "contact_email", widget: "string" }
+
+  - name: "pages"
+    label: "Page Content"
+    files:
+      - name: "home"
+        label: "Home Page"
+        file: "content/pages/home.json"
+        format: "json"
+        fields:
+          - { label: "Eyebrow (small label above headline)", name: "eyebrow", widget: "string" }
+          - { label: "Headline — main part", name: "heading_main", widget: "string" }
+          - { label: "Headline — emphasized/italic part", name: "heading_emphasis", widget: "string" }
+          - { label: "Subheading", name: "subtext", widget: "text" }
+          - { label: "Primary Button Label", name: "cta_primary_label", widget: "string" }
+          - { label: "Primary Button Link", name: "cta_primary_href", widget: "string" }
+          - { label: "Secondary Button Label", name: "cta_secondary_label", widget: "string" }
+          - { label: "Secondary Button Link", name: "cta_secondary_href", widget: "string" }
+          - { label: "Talent Section — Eyebrow", name: "talent_eyebrow", widget: "string" }
+          - { label: "Talent Section — Heading (main)", name: "talent_heading_main", widget: "string" }
+          - { label: "Talent Section — Heading (emphasis)", name: "talent_heading_emphasis", widget: "string" }
+          - { label: "Talent Section — Bio (separate paragraphs with a blank line)", name: "talent_bio", widget: "text" }
+          - { label: "Talent Section — Link Label", name: "talent_cta_label", widget: "string" }
+          - { label: "Talent Section — Link URL", name: "talent_cta_href", widget: "string" }
+          - { label: "Offerings — Eyebrow", name: "offerings_eyebrow", widget: "string" }
+          - label: "Offerings (3 pillars)"
+            name: "offerings"
+            widget: "list"
+            min: 1
+            fields:
+              - { label: "Roman Numeral", name: "roman", widget: "string" }
+              - { label: "Title", name: "title", widget: "string" }
+              - { label: "Description", name: "description", widget: "text" }
+              - { label: "Link Label", name: "link_label", widget: "string" }
+              - { label: "Link URL", name: "link_href", widget: "string" }
+          - { label: "Closing CTA Label", name: "closing_cta_label", widget: "string" }
+          - { label: "Closing CTA Link", name: "closing_cta_href", widget: "string" }
+
+      - name: "about"
+        label: "About Page"
+        file: "content/pages/about.json"
+        format: "json"
+        fields:
+          - { label: "Eyebrow", name: "eyebrow", widget: "string" }
+          - { label: "Headline — main part", name: "heading_main", widget: "string" }
+          - { label: "Headline — emphasized/italic part", name: "heading_emphasis", widget: "string" }
+          - { label: "Portrait Photo", name: "portrait", widget: "image" }
+          - { label: "Bio (separate paragraphs with a blank line)", name: "bio", widget: "text" }
+          - { label: "Portfolio Link Label", name: "portfolio_link_label", widget: "string" }
+          - { label: "Credentials — Eyebrow", name: "credentials_eyebrow", widget: "string" }
+          - label: "Credentials (3 columns)"
+            name: "credentials"
+            widget: "list"
+            min: 1
+            fields:
+              - { label: "Title", name: "title", widget: "string" }
+              - { label: "Description", name: "description", widget: "text" }
+
+      - name: "client_work"
+        label: "Client Work Page (intro only)"
+        file: "content/pages/client-work.json"
+        format: "json"
+        fields:
+          - { label: "Eyebrow", name: "eyebrow", widget: "string" }
+          - { label: "Headline", name: "heading", widget: "text" }
+
+      - name: "services"
+        label: "Services Page"
+        file: "content/pages/services.json"
+        format: "json"
+        fields:
+          - { label: "Eyebrow", name: "eyebrow", widget: "string" }
+          - { label: "Headline", name: "heading", widget: "string" }
+          - { label: "Subheading", name: "subtext", widget: "text" }
+          - label: "Services (3 blocks)"
+            name: "services"
+            widget: "list"
+            min: 1
+            fields:
+              - { label: "Service Name", name: "name", widget: "string" }
+              - { label: "Summary", name: "summary", widget: "text" }
+              - { label: "Ideal For", name: "ideal_for", widget: "text" }
+              - label: "Process Steps"
+                name: "process"
+                widget: "list"
+                field: { label: "Step", name: "step", widget: "string" }
+              - { label: "Pricing Note", name: "pricing_note", widget: "text" }
+              - label: "FAQ"
+                name: "faq"
+                widget: "list"
+                fields:
+                  - { label: "Question", name: "question", widget: "string" }
+                  - { label: "Answer", name: "answer", widget: "text" }
+          - { label: "Closing CTA Label", name: "closing_cta_label", widget: "string" }
+          - { label: "Closing CTA Link", name: "closing_cta_href", widget: "string" }
+
+      - name: "editors_desk"
+        label: "Editor's Desk Page"
+        file: "content/pages/editors-desk.json"
+        format: "json"
+        fields:
+          - { label: "Eyebrow", name: "eyebrow", widget: "string" }
+          - { label: "Headline", name: "heading", widget: "string" }
+          - { label: "Issue Label (e.g. \"July 2026\")", name: "issue_label", widget: "string" }
+          - { label: "Letter (separate paragraphs with a blank line)", name: "letter", widget: "text" }
+          - { label: "Trend Radar — Heading", name: "trend_radar_heading", widget: "string" }
+          - label: "Trend Radar Items"
+            name: "trend_radar"
+            widget: "list"
+            field: { label: "Item", name: "item", widget: "string" }
+          - { label: "Obsessions — Heading", name: "obsessions_heading", widget: "string" }
+          - label: "Current Obsessions"
+            name: "obsessions"
+            widget: "list"
+            field: { label: "Item", name: "item", widget: "string" }
+          - { label: "Reading List — Heading", name: "reading_list_heading", widget: "string" }
+          - label: "Reading List"
+            name: "reading_list"
+            widget: "list"
+            field: { label: "Item", name: "item", widget: "string" }
+          - { label: "Closing Note", name: "closing_note", widget: "text" }
+
+      - name: "booking"
+        label: "Booking Page"
+        file: "content/pages/booking.json"
+        format: "json"
+        fields:
+          - { label: "Eyebrow", name: "eyebrow", widget: "string" }
+          - { label: "Headline", name: "heading", widget: "string" }
+          - { label: "Subheading", name: "subtext", widget: "text" }
+          - label: "Bookable Options"
+            name: "options"
+            widget: "list"
+            fields:
+              - { label: "Name", name: "name", widget: "string" }
+              - { label: "Duration", name: "duration", widget: "string" }
+              - { label: "Description", name: "description", widget: "text" }
+          - { label: "Scheduler Note (shown if no embed URL set)", name: "scheduler_note", widget: "text" }
+          - { label: "Scheduler Embed URL (Cal.com or similar)", name: "scheduler_embed_url", widget: "string", required: false, hint: "Paste your Cal.com booking page URL here once you've set one up. Leave blank to show the note above instead." }
+          - { label: "Intake Section — Heading", name: "intake_heading", widget: "string" }
+          - { label: "Intake Section — Note", name: "intake_note", widget: "text" }
+          - { label: "Form Note", name: "form_note", widget: "text" }
+
+      - name: "media_kit"
+        label: "Media Kit Page"
+        file: "content/pages/media-kit.json"
+        format: "json"
+        fields:
+          - { label: "Eyebrow", name: "eyebrow", widget: "string" }
+          - { label: "Headline", name: "heading", widget: "string" }
+          - { label: "Subheading", name: "subtext", widget: "text" }
+          - label: "Stats (up to 6)"
+            name: "stats"
+            widget: "list"
+            max: 6
+            fields:
+              - { label: "Label", name: "label", widget: "string" }
+              - { label: "Value", name: "value", widget: "string" }
+              - { label: "Detail", name: "detail", widget: "string" }
+          - { label: "Bio", name: "bio", widget: "text" }
+          - { label: "Services Summary", name: "services_summary", widget: "string" }
+          - { label: "Portfolio Link Label", name: "portfolio_label", widget: "string" }
+
+      - name: "styling"
+        label: "Styling Page (intro only)"
+        file: "content/pages/styling.json"
+        format: "json"
+        fields:
+          - { label: "Eyebrow", name: "eyebrow", widget: "string" }
+          - { label: "Headline", name: "heading", widget: "string" }
+          - { label: "Subheading", name: "subtext", widget: "text" }
+
+      - name: "connect"
+        label: "Connect / Follow Page"
+        file: "content/pages/connect.json"
+        format: "json"
+        fields:
+          - { label: "Eyebrow", name: "eyebrow", widget: "string" }
+          - { label: "Headline", name: "heading", widget: "string" }
+          - { label: "Subheading", name: "subtext", widget: "text" }
+          - { label: "Default Share Text", name: "share_text", widget: "text" }
+          - { label: "Feeds Section — Eyebrow", name: "feeds_eyebrow", widget: "string" }
+          - label: "Feeds (3 columns)"
+            name: "feeds"
+            widget: "list"
+            min: 1
+            fields:
+              - { label: "Platform Name", name: "platform", widget: "string" }
+              - { label: "Handle / Page Name", name: "handle", widget: "string" }
+              - { label: "Description", name: "description", widget: "text" }
+              - { label: "Link Label", name: "link_label", widget: "string" }
+              - { label: "Link URL", name: "link_href", widget: "string" }
+          - { label: "Pinterest Boards — Heading", name: "pinterest_boards_heading", widget: "string" }
+          - { label: "Pinterest Boards — Note", name: "pinterest_boards_note", widget: "text" }
+          - label: "Pinterest Boards (by content pillar)"
+            name: "pinterest_boards"
+            widget: "list"
+            fields:
+              - { label: "Board Name", name: "board_name", widget: "string" }
+              - { label: "Content Pillar", name: "pillar", widget: "string", hint: "e.g. \"Luxury Brand Analysis\", \"Styling & Editorial\"" }
+              - { label: "Board URL", name: "url", widget: "string" }
+              - { label: "Related Link Label", name: "related_label", widget: "string" }
+              - { label: "Related Link URL", name: "related_href", widget: "string" }
+
+      - name: "contact"
+        label: "Contact Page"
+        file: "content/pages/contact.json"
+        format: "json"
+        fields:
+          - { label: "Eyebrow", name: "eyebrow", widget: "string" }
+          - { label: "Headline", name: "heading", widget: "string" }
+          - { label: "Subheading", name: "subtext", widget: "text" }
+          - label: "Inquiry Type Options"
+            name: "inquiry_types"
+            widget: "list"
+            field: { label: "Option", name: "option", widget: "string" }
+          - { label: "Form Note (shown under Send button)", name: "form_note", widget: "text" }
+          - { label: "FAQ — Eyebrow", name: "faq_eyebrow", widget: "string" }
+          - { label: "FAQ — Heading", name: "faq_heading", widget: "string" }
+          - label: "FAQ Items"
+            name: "faq"
+            widget: "list"
+            min: 1
+            fields:
+              - { label: "Question", name: "question", widget: "string" }
+              - { label: "Answer", name: "answer", widget: "text" }

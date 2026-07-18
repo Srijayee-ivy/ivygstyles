@@ -1,0 +1,95 @@
+---
+permalink: "/styling.html"
+---
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Styling | Srijayee</title>
+<meta name="description" content="Personal styling guidance and visual inspiration from @ivygstyles.">
+<meta property="og:title" content="Styling | Srijayee">
+<meta property="og:description" content="Personal styling guidance and visual inspiration from @ivygstyles.">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary_large_image">
+<script src="https://cdn.tailwindcss.com"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap" rel="stylesheet">
+<style>
+  body{font-family:'Inter',sans-serif;background-color:#000;color:#fff;overflow-x:hidden;}
+  .serif{font-family:'Playfair Display',serif;}
+  a:focus-visible,button:focus-visible{outline:2px solid #fff;outline-offset:3px;}
+  .tile{position:relative;overflow:hidden;background:#111;}
+  .tile:not(.has-image)::after{content:"";position:absolute;inset:0;background:repeating-linear-gradient(135deg,rgba(255,255,255,0.05) 0 2px,transparent 2px 26px);}
+  .tile .cap{position:absolute;bottom:0;left:0;right:0;z-index:10;padding:18px;background:linear-gradient(to top, rgba(0,0,0,0.75), transparent);}
+  .tile .cap span{font-family:'Playfair Display',serif;font-style:italic;color:#f2f2f2;}
+  .tile img{width:100%;height:100%;object-fit:cover;filter:grayscale(0.1);transition:filter .8s ease, transform 1.2s ease;}
+  .tile:hover img{filter:grayscale(0);transform:scale(1.03);}
+  .t1{background:linear-gradient(155deg,#3a3a3a 0%,#0a0a0a 100%);}
+  .t2{background:linear-gradient(155deg,#262626 0%,#000 100%);}
+  .t3{background:linear-gradient(155deg,#4a4a4a 0%,#1a1a1a 100%);}
+</style>
+</head>
+<body class="antialiased selection:bg-gray-700 selection:text-white">
+
+{% set active = "styling" %}
+{% include "nav.njk" %}
+
+<header class="max-w-screen-xl mx-auto px-8 pt-12 pb-8 max-w-2xl">
+  <p class="text-xs uppercase tracking-[0.2em] text-gray-500 mb-6">{{ styling.eyebrow }}</p>
+  <h1 class="text-4xl md:text-6xl serif font-medium leading-tight text-gray-200">{{ styling.heading }}</h1>
+  <p class="text-gray-400 font-light text-base md:text-lg mt-6 leading-relaxed max-w-xl">{{ styling.subtext }}</p>
+  <div class="flex flex-wrap gap-6 mt-8 text-xs uppercase tracking-widest">
+    <a href="{{ social.pinterest_url }}" target="_blank" rel="noopener" class="border-b border-gray-700 pb-1 text-gray-300 hover:text-white hover:border-white transition">Follow on Pinterest →</a>
+    <a href="{{ social.instagram_url }}" target="_blank" rel="noopener" class="border-b border-gray-700 pb-1 text-gray-300 hover:text-white hover:border-white transition">Instagram →</a>
+    <a href="{{ social.facebook_url }}" target="_blank" rel="noopener" class="border-b border-gray-700 pb-1 text-gray-300 hover:text-white hover:border-white transition">Facebook →</a>
+  </div>
+</header>
+
+<section class="max-w-screen-xl mx-auto px-8 py-20">
+  {% set tones = ["t1","t2","t3"] %}
+  {% if collections.looks.length %}
+    {% set posClasses = [
+      "col-span-2 row-span-2 md:col-span-4 md:row-span-2",
+      "col-span-1 row-span-1 md:col-span-2 md:row-span-1",
+      "col-span-1 row-span-1 md:col-span-2 md:row-span-1",
+      "col-span-1 row-span-1 md:col-span-2 md:row-span-1",
+      "col-span-1 row-span-1 md:col-span-2 md:row-span-1",
+      "col-span-2 row-span-1 md:col-span-2 md:row-span-1"
+    ] %}
+    <div class="grid grid-cols-2 md:grid-cols-6 auto-rows-[190px] md:auto-rows-[230px] gap-3">
+      {% for l in collections.looks %}
+        {% if loop.index0 < 6 %}
+        <div class="tile group {{ 'has-image' if l.image else tones[loop.index0 % 3] }} {{ posClasses[loop.index0] }}">
+          {% if l.image %}<img src="{{ l.image }}" alt="{{ l.title or '' }}">{% endif %}
+          {% if l.title %}
+          <div class="cap">
+            <span class="{{ 'text-2xl md:text-3xl' if loop.index0 == 0 else 'text-sm' }}">{{ l.title }}</span>
+          </div>
+          {% endif %}
+        </div>
+        {% endif %}
+      {% endfor %}
+    </div>
+    {% if collections.looks.length > 6 %}
+    <div class="grid grid-cols-2 md:grid-cols-3 gap-3 mt-3">
+      {% for l in collections.looks %}
+        {% if loop.index0 >= 6 %}
+        <div class="tile group aspect-[4/5] {{ 'has-image' if l.image else tones[loop.index0 % 3] }}">
+          {% if l.image %}<img src="{{ l.image }}" alt="{{ l.title or '' }}">{% endif %}
+          {% if l.title %}<div class="cap"><span class="text-sm">{{ l.title }}</span></div>{% endif %}
+        </div>
+        {% endif %}
+      {% endfor %}
+    </div>
+    {% endif %}
+  {% else %}
+    <div class="text-gray-600 text-sm">Looks will appear here once published in the CMS.</div>
+  {% endif %}
+</section>
+
+{% include "footer.njk" %}
+
+{% include "analytics.njk" %}
+</body>
+</html>

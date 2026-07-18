@@ -1,0 +1,24 @@
+{
+  "eyebrow": "Fashion & Luxury Content Strategist",
+  "heading_main": "I read brands the way a stylist reads",
+  "heading_emphasis": "a room.",
+  "subtext": "Brand narratives, content strategy, and personal styling guidance — for fashion and luxury brands who want their story told with intention.",
+  "cta_primary_label": "View Client Work",
+  "cta_primary_href": "/client-work.html",
+  "cta_secondary_label": "Start a Conversation",
+  "cta_secondary_href": "/contact.html",
+  "talent_eyebrow": "The Talent",
+  "talent_heading_main": "From digital precision",
+  "talent_heading_emphasis": "to luxury narrative.",
+  "talent_bio": "I am a fashion and luxury content strategist working at the intersection of brand storytelling, SEO-driven copywriting, and personal styling. My foundation is built on the rigor of Amazon-level product narration and a relentless focus on measurable impact.\n\nArmed with a credential in Fashion & Luxury Brand Management from Bocconi University, I bring brand-level thinking to every project — whether it's a product description for Taneira, a partnership pitch, or someone's personal wardrobe.",
+  "talent_cta_label": "Read the full story →",
+  "talent_cta_href": "/about.html",
+  "offerings_eyebrow": "Three Ways to Work Together",
+  "offerings": [
+    { "roman": "I.", "title": "Writing & Content Strategy", "description": "SEO-driven, brand-voice-accurate content for fashion and luxury e-commerce — shaped for heritage brands including Manyavar, Taneira, and Tanishq.", "link_label": "See How It Works", "link_href": "/services.html" },
+    { "roman": "II.", "title": "Brand Partnerships", "description": "Open to ongoing collaborations, sponsored content, and brand storytelling partnerships with fashion, luxury, and lifestyle labels.", "link_label": "Start a Partnership", "link_href": "/contact.html" },
+    { "roman": "III.", "title": "Personal Styling", "description": "One-on-one styling support — wardrobe edits, capsule building, and personal aesthetic direction. The visual companion to the writing.", "link_label": "See How It Works", "link_href": "/services.html" }
+  ],
+  "closing_cta_label": "Start a Conversation",
+  "closing_cta_href": "/contact.html"
+}
