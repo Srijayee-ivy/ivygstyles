@@ -16,33 +16,40 @@ permalink: "/styling.html"
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap" rel="stylesheet">
 <style>
-  body{font-family:'Inter',sans-serif;background-color:#000;color:#fff;overflow-x:hidden;}
+  :root{
+    --paper:#000000; --paper-deep:#14110B;
+    --ink:#D4AF37; --ink-soft:#A08847;
+    --muted:#D6CBB0; --faint:#5C4F2E;
+    --line:#2A2419; --brass:#F0C550;
+  }
+
+  body{font-family:'Inter',sans-serif;background-color:var(--paper);color:var(--ink);overflow-x:hidden;}
   .serif{font-family:'Playfair Display',serif;}
-  a:focus-visible,button:focus-visible{outline:2px solid #fff;outline-offset:3px;}
-  .tile{position:relative;overflow:hidden;background:#111;}
-  .tile:not(.has-image)::after{content:"";position:absolute;inset:0;background:repeating-linear-gradient(135deg,rgba(255,255,255,0.05) 0 2px,transparent 2px 26px);}
+  a:focus-visible,button:focus-visible{outline:2px solid var(--ink);outline-offset:3px;}
+  .tile{position:relative;overflow:hidden;background:var(--paper-deep);}
+  .tile:not(.has-image)::after{content:"";position:absolute;inset:0;background:repeating-linear-gradient(135deg,rgba(240,197,80,0.06) 0 2px,transparent 2px 26px);}
   .tile .cap{position:absolute;bottom:0;left:0;right:0;z-index:10;padding:18px;background:linear-gradient(to top, rgba(0,0,0,0.75), transparent);}
   .tile .cap span{font-family:'Playfair Display',serif;font-style:italic;color:#f2f2f2;}
   .tile img{width:100%;height:100%;object-fit:cover;filter:grayscale(0.1);transition:filter .8s ease, transform 1.2s ease;}
   .tile:hover img{filter:grayscale(0);transform:scale(1.03);}
-  .t1{background:linear-gradient(155deg,#3a3a3a 0%,#0a0a0a 100%);}
-  .t2{background:linear-gradient(155deg,#262626 0%,#000 100%);}
-  .t3{background:linear-gradient(155deg,#4a4a4a 0%,#1a1a1a 100%);}
+  .t1{background:linear-gradient(155deg,#241f14 0%,#0a0805 100%);}
+  .t2{background:linear-gradient(155deg,#1a160e 0%,#000000 100%);}
+  .t3{background:linear-gradient(155deg,#2e2717 0%,#050402 100%);}
 </style>
 </head>
-<body class="antialiased selection:bg-gray-700 selection:text-white">
+<body class="antialiased selection:bg-[var(--line)] selection:text-[var(--ink)]">
 
 {% set active = "styling" %}
 {% include "nav.njk" %}
 
 <header class="max-w-screen-xl mx-auto px-8 pt-12 pb-8 max-w-2xl">
-  <p class="text-xs uppercase tracking-[0.2em] text-gray-500 mb-6">{{ styling.eyebrow }}</p>
-  <h1 class="text-4xl md:text-6xl serif font-medium leading-tight text-gray-200">{{ styling.heading }}</h1>
-  <p class="text-gray-400 font-light text-base md:text-lg mt-6 leading-relaxed max-w-xl">{{ styling.subtext }}</p>
+  <p class="text-xs uppercase tracking-[0.2em] text-[var(--muted)] mb-6">{{ styling.eyebrow }}</p>
+  <h1 data-hero-reveal class="text-4xl md:text-6xl serif font-medium leading-tight text-[var(--ink)]">{{ styling.heading }}</h1>
+  <p class="text-[var(--ink-soft)] font-light text-base md:text-lg mt-6 leading-relaxed max-w-xl">{{ styling.subtext }}</p>
   <div class="flex flex-wrap gap-6 mt-8 text-xs uppercase tracking-widest">
-    <a href="{{ social.pinterest_url }}" target="_blank" rel="noopener" class="border-b border-gray-700 pb-1 text-gray-300 hover:text-white hover:border-white transition">Follow on Pinterest →</a>
-    <a href="{{ social.instagram_url }}" target="_blank" rel="noopener" class="border-b border-gray-700 pb-1 text-gray-300 hover:text-white hover:border-white transition">Instagram →</a>
-    <a href="{{ social.facebook_url }}" target="_blank" rel="noopener" class="border-b border-gray-700 pb-1 text-gray-300 hover:text-white hover:border-white transition">Facebook →</a>
+    <a href="{{ social.pinterest_url }}" target="_blank" rel="noopener" class="border-b border-[var(--line)] pb-1 text-[var(--ink-soft)] hover:text-[var(--brass)] hover:border-[var(--ink)] transition">Follow on Pinterest →</a>
+    <a href="{{ social.instagram_url }}" target="_blank" rel="noopener" class="border-b border-[var(--line)] pb-1 text-[var(--ink-soft)] hover:text-[var(--brass)] hover:border-[var(--ink)] transition">Instagram →</a>
+    <a href="{{ social.facebook_url }}" target="_blank" rel="noopener" class="border-b border-[var(--line)] pb-1 text-[var(--ink-soft)] hover:text-[var(--brass)] hover:border-[var(--ink)] transition">Facebook →</a>
   </div>
 </header>
 
@@ -84,12 +91,13 @@ permalink: "/styling.html"
     </div>
     {% endif %}
   {% else %}
-    <div class="text-gray-600 text-sm">Looks will appear here once published in the CMS.</div>
+    <div class="text-[var(--muted)] text-sm">Looks will appear here once published in the CMS.</div>
   {% endif %}
 </section>
 
 {% include "footer.njk" %}
 
+{% include "animations.njk" %}
 {% include "analytics.njk" %}
 </body>
 </html>

@@ -1,0 +1,73 @@
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+<script>
+(function(){
+  // Progressive enhancement only: content is fully visible by default in the HTML/CSS.
+  // If GSAP fails to load, or the visitor prefers reduced motion, we simply do nothing
+  // and the page stays exactly as readable as it already was.
+  var reduceMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (reduceMotion || typeof gsap === 'undefined') return;
+
+  gsap.registerPlugin(ScrollTrigger);
+
+  // Scroll-triggered reveals: any element with data-reveal fades + rises into place
+  // the first time it scrolls into view.
+  var revealEls = document.querySelectorAll('[data-reveal]');
+  revealEls.forEach(function(el, i){
+    var group = el.getAttribute('data-reveal-group');
+    var delay = group ? (Array.prototype.indexOf.call(
+        document.querySelectorAll('[data-reveal-group="' + group + '"]'), el
+      ) * 0.08) : 0;
+
+    gsap.fromTo(el,
+      { opacity: 0, y: 28 },
+      {
+        opacity: 1, y: 0, duration: 0.9, delay: delay, ease: 'power2.out',
+        scrollTrigger: { trigger: el, start: 'top 88%', once: true }
+      }
+    );
+  });
+
+  // Hero entrance: elements with data-hero-reveal animate in immediately on load,
+  // staggered in document order — no scroll needed since they're above the fold.
+  var heroEls = document.querySelectorAll('[data-hero-reveal]');
+  if (heroEls.length) {
+    gsap.fromTo(heroEls,
+      { opacity: 0, y: 20 },
+      { opacity: 1, y: 0, duration: 0.9, ease: 'power2.out', stagger: 0.12, delay: 0.1 }
+    );
+  }
+
+  // Image reveals get a slightly slower settle + gentle scale-down, distinct from
+  // plain text reveals — a small but deliberate "cinematic" touch on photography.
+  var imageReveals = document.querySelectorAll('[data-reveal-image]');
+  imageReveals.forEach(function(el){
+    gsap.fromTo(el,
+      { opacity: 0, scale: 1.06 },
+      {
+        opacity: 1, scale: 1, duration: 1.1, ease: 'power2.out',
+        scrollTrigger: { trigger: el, start: 'top 85%', once: true }
+      }
+    );
+  });
+
+  // Magnetic buttons: primary CTAs drift slightly toward the cursor within a small
+  // radius, then ease back on mouseleave — a restrained, common Awwwards-style
+  // microinteraction. Skipped entirely on touch devices, where it has no meaning.
+  var isTouch = window.matchMedia && window.matchMedia('(hover: none)').matches;
+  if (!isTouch) {
+    document.querySelectorAll('[data-magnetic]').forEach(function(btn){
+      var strength = 0.25;
+      btn.addEventListener('mousemove', function(e){
+        var rect = btn.getBoundingClientRect();
+        var x = (e.clientX - rect.left - rect.width / 2) * strength;
+        var y = (e.clientY - rect.top - rect.height / 2) * strength;
+        gsap.to(btn, { x: x, y: y, duration: 0.4, ease: 'power2.out' });
+      });
+      btn.addEventListener('mouseleave', function(){
+        gsap.to(btn, { x: 0, y: 0, duration: 0.5, ease: 'power3.out' });
+      });
+    });
+  }
+})();
+</script>

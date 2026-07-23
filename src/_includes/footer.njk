@@ -1,4 +1,4 @@
-<footer class="border-t border-gray-900 py-16 mt-12">
+<footer class="border-t border-[var(--line)] py-16 mt-12">
   <div class="max-w-screen-2xl mx-auto px-8">
 
     <!--
@@ -8,26 +8,25 @@
       from Buttondown, ConvertKit, or Mailchimp (all have a free tier and a paste-in
       HTML snippet) and it'll slot into this same spot.
     -->
-    <div class="border-b border-gray-900 pb-12 mb-12 flex flex-col md:flex-row md:items-end justify-between gap-6">
+    <div class="border-b border-[var(--line)] pb-12 mb-12 flex flex-col md:flex-row md:items-end justify-between gap-6">
       <div>
-        <p class="text-xs uppercase tracking-[0.2em] text-gray-500 mb-2">Join The Edit</p>
-        <p class="serif text-2xl text-gray-200 max-w-sm">The Edit Letter — trend notes and new work, roughly monthly.</p>
+        <p class="text-xs uppercase tracking-[0.2em] text-[var(--muted)] mb-2">Join The Edit</p>
+        <p class="serif text-2xl text-[var(--ink)] max-w-sm">The Edit Letter — trend notes and new work, roughly monthly.</p>
       </div>
       <form id="newsletterForm" class="flex w-full md:w-auto max-w-sm gap-0">
-        <input type="email" id="newsletterEmail" required placeholder="Your email" class="flex-grow bg-transparent border-0 border-b border-gray-700 py-2 text-white text-sm placeholder-gray-600 focus:outline-none focus:border-white">
-        <button type="submit" class="flex-shrink-0 border-b border-gray-700 px-4 text-xs uppercase tracking-widest text-gray-300 hover:text-white hover:border-white transition">Subscribe →</button>
+        <input type="email" id="newsletterEmail" required placeholder="Your email" class="flex-grow bg-transparent border-0 border-b border-[var(--line)] py-2 text-[var(--ink)] text-sm placeholder-[var(--muted)] focus:outline-none focus:border-[var(--ink)]">
+        <button type="submit" class="flex-shrink-0 border-b border-[var(--line)] px-4 text-xs uppercase tracking-widest text-[var(--ink-soft)] hover:text-[var(--brass)] hover:border-[var(--ink)] transition">Subscribe →</button>
       </form>
     </div>
 
-    <div class="flex flex-col md:flex-row justify-between items-center text-xs uppercase tracking-[0.15em] text-gray-600 gap-6">
+    <div class="flex flex-col md:flex-row justify-between items-center text-xs uppercase tracking-[0.15em] text-[var(--muted)] gap-6">
       <p>© 2026 Srijayee Ghosh. All Rights Reserved.</p>
       <div class="flex flex-wrap justify-center gap-6 md:gap-8">
-        <a href="{{ social.pinterest_url }}" target="_blank" rel="noopener" class="hover:text-white transition">Pinterest</a>
-        <a href="{{ social.instagram_url }}" target="_blank" rel="noopener" class="hover:text-white transition">Instagram</a>
-        <a href="{{ social.facebook_url }}" target="_blank" rel="noopener" class="hover:text-white transition">Facebook</a>
-        <a href="{{ social.linkedin_url }}" target="_blank" rel="noopener" class="hover:text-white transition">LinkedIn</a>
-        <a href="{{ social.portfolio_url }}" target="_blank" rel="noopener" class="hover:text-white transition">Portfolio</a>
-        <a href="/media-kit.html" class="hover:text-white transition">Media Kit</a>
+        <a href="{{ social.pinterest_url }}" target="_blank" rel="noopener" class="hover:text-[var(--brass)] transition">Pinterest</a>
+        <a href="{{ social.instagram_url }}" target="_blank" rel="noopener" class="hover:text-[var(--brass)] transition">Instagram</a>
+        <a href="{{ social.facebook_url }}" target="_blank" rel="noopener" class="hover:text-[var(--brass)] transition">Facebook</a>
+        <a href="{{ social.linkedin_url }}" target="_blank" rel="noopener" class="hover:text-[var(--brass)] transition">LinkedIn</a>
+        <a href="{{ social.portfolio_url }}" target="_blank" rel="noopener" class="hover:text-[var(--brass)] transition">Portfolio</a>
       </div>
     </div>
   </div>

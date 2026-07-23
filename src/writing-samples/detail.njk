@@ -18,12 +18,19 @@ eleventyComputed:
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap" rel="stylesheet">
 <style>
-  body{font-family:'Inter',sans-serif;background-color:#000;color:#fff;overflow-x:hidden;}
+  :root{
+    --paper:#000000; --paper-deep:#14110B;
+    --ink:#D4AF37; --ink-soft:#A08847;
+    --muted:#D6CBB0; --faint:#5C4F2E;
+    --line:#2A2419; --brass:#F0C550;
+  }
+
+  body{font-family:'Inter',sans-serif;background-color:var(--paper);color:var(--ink);overflow-x:hidden;}
   .serif{font-family:'Playfair Display',serif;}
-  a:focus-visible{outline:2px solid #fff;outline-offset:3px;}
+  a:focus-visible{outline:2px solid var(--ink);outline-offset:3px;}
 </style>
 </head>
-<body class="antialiased selection:bg-gray-700 selection:text-white">
+<body class="antialiased selection:bg-[var(--line)] selection:text-[var(--ink)]">
 
 {% set active = "writing-samples" %}
 {% include "nav.njk" %}
@@ -31,38 +38,39 @@ eleventyComputed:
 {% include "breadcrumbs.njk" %}
 
 <header class="max-w-screen-md mx-auto px-8 pt-10 pb-8">
-  <p class="text-xs uppercase tracking-widest text-gray-600 mb-4">{{ sample.publication_type }}</p>
-  <h1 class="text-3xl md:text-5xl serif leading-tight text-gray-100 mb-6">{{ sample.title }}</h1>
-  <p class="text-gray-400 font-light leading-relaxed text-lg">{{ sample.excerpt }}</p>
+  <p class="text-xs uppercase tracking-widest text-[var(--muted)] mb-4">{{ sample.publication_type }}</p>
+  <h1 class="text-3xl md:text-5xl serif leading-tight text-[var(--ink)] mb-6">{{ sample.title }}</h1>
+  <p class="text-[var(--ink-soft)] font-light leading-relaxed text-lg">{{ sample.excerpt }}</p>
 </header>
 
-<section class="max-w-screen-md mx-auto px-8 py-10 border-t border-gray-900 space-y-10">
+<section class="max-w-screen-md mx-auto px-8 py-10 border-t border-[var(--line)] space-y-10">
   {% if sample.context %}
-  <div><p class="text-xs uppercase tracking-widest text-gray-600 mb-3">Context</p><p class="text-gray-400 font-light leading-relaxed">{{ sample.context }}</p></div>
+  <div><p class="text-xs uppercase tracking-widest text-[var(--muted)] mb-3">Context</p><p class="text-[var(--ink-soft)] font-light leading-relaxed">{{ sample.context }}</p></div>
   {% endif %}
   {% if sample.objective %}
-  <div><p class="text-xs uppercase tracking-widest text-gray-600 mb-3">Objective</p><p class="text-gray-400 font-light leading-relaxed">{{ sample.objective }}</p></div>
+  <div><p class="text-xs uppercase tracking-widest text-[var(--muted)] mb-3">Objective</p><p class="text-[var(--ink-soft)] font-light leading-relaxed">{{ sample.objective }}</p></div>
   {% endif %}
   {% if sample.skills_demonstrated %}
   <div>
-    <p class="text-xs uppercase tracking-widest text-gray-600 mb-3">Skills Demonstrated</p>
+    <p class="text-xs uppercase tracking-widest text-[var(--muted)] mb-3">Skills Demonstrated</p>
     <ul class="space-y-3">
       {% for item in sample.skills_demonstrated %}
-      <li class="flex gap-3 text-gray-400 font-light leading-relaxed"><span class="text-gray-700 flex-shrink-0">→</span><span>{{ item }}</span></li>
+      <li class="flex gap-3 text-[var(--ink-soft)] font-light leading-relaxed"><span class="text-[var(--faint)] flex-shrink-0">→</span><span>{{ item }}</span></li>
       {% endfor %}
     </ul>
   </div>
   {% endif %}
   {% if sample.external_link %}
-  <a href="{{ sample.external_link }}" class="inline-block text-xs uppercase tracking-widest border-b border-gray-700 pb-1 text-gray-300 hover:text-white hover:border-white transition">View Full Work →</a>
+  <a href="{{ sample.external_link }}" class="inline-block text-xs uppercase tracking-widest border-b border-[var(--line)] pb-1 text-[var(--ink-soft)] hover:text-[var(--brass)] hover:border-[var(--ink)] transition">View Full Work →</a>
   {% endif %}
 </section>
 
-<footer class="max-w-screen-md mx-auto px-8 py-16 border-t border-gray-900 text-center">
-  <a href="/writing-samples/" class="text-xs uppercase tracking-widest border-b border-gray-700 pb-1 text-gray-300 hover:text-white hover:border-white transition">← All Writing Samples</a>
+<footer class="max-w-screen-md mx-auto px-8 py-16 border-t border-[var(--line)] text-center">
+  <a href="/writing-samples/" class="text-xs uppercase tracking-widest border-b border-[var(--line)] pb-1 text-[var(--ink-soft)] hover:text-[var(--brass)] hover:border-[var(--ink)] transition">← All Writing Samples</a>
 </footer>
 
 {% include "footer.njk" %}
+{% include "animations.njk" %}
 {% include "analytics.njk" %}
 </body>
 </html>

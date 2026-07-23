@@ -56,7 +56,6 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addGlobalData("services", () => readJSON("pages/services.json"));
   eleventyConfig.addGlobalData("editorsDesk", () => readJSON("pages/editors-desk.json"));
   eleventyConfig.addGlobalData("booking", () => readJSON("pages/booking.json"));
-  eleventyConfig.addGlobalData("mediaKit", () => readJSON("pages/media-kit.json"));
   eleventyConfig.addGlobalData("social", () => readJSON("settings/social.json"));
 
   // Folder collections
