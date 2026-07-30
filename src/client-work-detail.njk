@@ -13,92 +13,92 @@ eleventyComputed:
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>{{ case.meta_title if case.meta_title else title }}</title>
+<link rel="canonical" href="https://ivygstyles.pages.dev{{ page.url }}">
 <meta name="description" content="{{ case.meta_description if case.meta_description else case.description }}">
 <meta property="og:title" content="{{ case.meta_title if case.meta_title else (case.client + ' | Srijayee') }}">
 <meta property="og:description" content="{{ case.meta_description if case.meta_description else case.description }}">
 <meta property="og:type" content="article">
 {% if case.image %}<meta property="og:image" content="{{ case.image }}">{% endif %}
+<meta name="twitter:card" content="summary_large_image">
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@type": "CreativeWork",
   "name": {{ case.title | dump | safe }},
   "about": {{ case.client | dump | safe }},
-  "description": {{ (case.meta_description if case.meta_description else case.description) | dump | safe }},
-  "creator": { "@type": "Person", "name": "Srijayee Ghosh" }
+  "description": {{ case.description | dump | safe }},
+  "creator": { "@type": "Person", "name": "Srijayee Ghosh", "jobTitle": "Fashion & Luxury Content Strategist" }
+  {% if case.image %}, "image": "https://ivygstyles.pages.dev{{ case.image }}"{% endif %}
 }
 </script>
-<script>tailwind = { config: { theme: { extend: { colors: { gold: "#C9A961" } } } } };</script>
 <script src="https://cdn.tailwindcss.com"></script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap" rel="stylesheet">
 <style>
-  body{font-family:'Inter',sans-serif;background-color:#000;color:#fff;overflow-x:hidden;}
+  :root{
+    --paper:#000000; --paper-deep:#14110B;
+    --ink:#D4AF37; --ink-soft:#A08847;
+    --muted:#D6CBB0; --faint:#5C4F2E;
+    --line:#2A2419; --brass:#F0C550;
+  }
+
+  body{font-family:'Inter',sans-serif;background-color:var(--paper);color:var(--ink);overflow-x:hidden;}
   .serif{font-family:'Playfair Display',serif;}
-  a:focus-visible{outline:2px solid #fff;outline-offset:3px;}
+  a:focus-visible{outline:2px solid var(--ink);outline-offset:3px;}
 </style>
 </head>
-<body class="antialiased selection:bg-gray-700 selection:text-white">
+<body class="antialiased selection:bg-[var(--line)] selection:text-[var(--ink)]">
 
 {% set active = "client-work" %}
 {% include "nav.njk" %}
 
 <header class="max-w-screen-xl mx-auto px-8 pt-4 pb-4">
-  <a href="/client-work.html" class="text-xs uppercase tracking-widest border-b border-gray-700 pb-1 text-gray-400 hover:text-gold hover:border-gold transition">← All Client Work</a>
+  <a href="/client-work.html" class="text-xs uppercase tracking-widest border-b border-[var(--line)] pb-1 text-[var(--ink-soft)] hover:text-[var(--brass)] hover:border-[var(--ink)] transition">← All Client Work</a>
 </header>
 
 {% if case.image %}
 <div class="max-w-screen-xl mx-auto px-8 pt-8">
-  <div class="aspect-[16/9] md:aspect-[21/9] overflow-hidden bg-gray-900">
-    <img src="{{ case.image }}" alt="{{ case.client }}" class="w-full h-full object-cover">
+  <div class="aspect-[16/9] md:aspect-[21/9] overflow-hidden bg-[var(--paper-deep)]">
+    <img data-reveal-image src="{{ case.image }}" alt="{{ case.client }}" class="w-full h-full object-cover">
   </div>
 </div>
 {% endif %}
 
 <header class="max-w-screen-md mx-auto px-8 pt-12 pb-8">
-  <p class="text-xs uppercase tracking-[0.2em] text-gold mb-4">{{ case.client }}</p>
-  <h1 class="text-3xl md:text-5xl serif leading-tight text-gray-100 mb-6">{{ case.title }}</h1>
-  <p class="text-gray-400 font-light leading-relaxed text-lg">{{ case.description }}</p>
+  <p class="text-xs uppercase tracking-[0.2em] text-[var(--muted)] mb-4">{{ case.client }}</p>
+  <h1 class="text-3xl md:text-5xl serif leading-tight text-[var(--ink)] mb-6">{{ case.title }}</h1>
+  <p class="text-[var(--ink-soft)] font-light leading-relaxed text-lg">{{ case.description }}</p>
 </header>
 
-<section class="max-w-screen-md mx-auto px-8 py-10 border-t border-gray-900">
+<section class="max-w-screen-md mx-auto px-8 py-10 border-t border-[var(--line)]">
   <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
     {% if case.challenge %}
     <div>
-      <p class="text-xs uppercase tracking-widest text-gray-600 mb-3">Challenge</p>
-      <p class="text-gray-400 font-light leading-relaxed text-sm">{{ case.challenge }}</p>
+      <p class="text-xs uppercase tracking-widest text-[var(--muted)] mb-3">Challenge</p>
+      <p class="text-[var(--ink-soft)] font-light leading-relaxed text-sm">{{ case.challenge }}</p>
     </div>
     {% endif %}
     {% if case.approach %}
     <div>
-      <p class="text-xs uppercase tracking-widest text-gray-600 mb-3">Approach</p>
-      <p class="text-gray-400 font-light leading-relaxed text-sm">{{ case.approach }}</p>
+      <p class="text-xs uppercase tracking-widest text-[var(--muted)] mb-3">Approach</p>
+      <p class="text-[var(--ink-soft)] font-light leading-relaxed text-sm">{{ case.approach }}</p>
     </div>
     {% endif %}
     {% if case.outcome %}
     <div>
-      <p class="text-xs uppercase tracking-widest text-gray-600 mb-3">Outcome</p>
-      <p class="text-gray-400 font-light leading-relaxed text-sm">{{ case.outcome }}</p>
-      {% if case.home_tag %}<p class="text-xs uppercase tracking-widest text-gray-300 mt-3 border-l border-gray-700 pl-3">{{ case.home_tag }}</p>{% endif %}
+      <p class="text-xs uppercase tracking-widest text-[var(--muted)] mb-3">Outcome</p>
+      <p class="text-[var(--ink-soft)] font-light leading-relaxed text-sm">{{ case.outcome }}</p>
+      {% if case.home_tag %}<p class="text-xs uppercase tracking-widest text-[var(--ink-soft)] mt-3 border-l border-[var(--line)] pl-3">{{ case.home_tag }}</p>{% endif %}
     </div>
     {% endif %}
   </div>
 </section>
 
-{% for t in collections.testimonials %}
-  {% if t.project_ref == case.client %}
-  <section class="max-w-screen-md mx-auto px-8 py-14 border-t border-gray-900">
-    <p class="serif italic text-2xl md:text-3xl text-gray-300 leading-snug mb-6">"{{ t.quote }}"</p>
-    <p class="text-xs uppercase tracking-widest text-gray-500">{{ t.client_name }}{{ ', ' + t.role if t.role }}</p>
-  </section>
-  {% endif %}
-{% endfor %}
-
-<footer class="max-w-screen-md mx-auto px-8 py-16 border-t border-gray-900 text-center">
-  <a href="/client-work.html" class="text-xs uppercase tracking-widest border-b border-gray-700 pb-1 text-gray-300 hover:text-gold hover:border-gold transition">← Back to Client Work</a>
+<footer class="max-w-screen-md mx-auto px-8 py-16 border-t border-[var(--line)] text-center">
+  <a href="/client-work.html" class="text-xs uppercase tracking-widest border-b border-[var(--line)] pb-1 text-[var(--ink-soft)] hover:text-[var(--brass)] hover:border-[var(--ink)] transition">← Back to Client Work</a>
 </footer>
 
+{% include "animations.njk" %}
 {% include "analytics.njk" %}
-{% include "motion.njk" %}
 </body>
 </html>

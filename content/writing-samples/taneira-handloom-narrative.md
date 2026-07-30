@@ -1,26 +1,28 @@
 ---
-title: "Product Narrative — Taneira Handloom"
-publication_type: "E-commerce Narrative Copy"
-context: "Delivered for Taneira (Titan/Tata) across heritage handloom saree product pages."
-excerpt: "Product narratives that open with genuine craft storytelling, then transition cleanly into the practical details — fabric, care, fit — a buyer needs to complete a purchase, without the craft story ever feeling bolted on."
-objective: "Honor the real heritage and craft behind handloom pieces while still writing e-commerce copy structured to convert."
+title: "Craft-First Product Narrative — Taneira"
+publication_type: "E-commerce Product Copy"
+context: "Sample approach from heritage handloom product narrative work for Taneira, balancing craft storytelling with conversion-ready structure."
+excerpt: "Product copy that opens with the craft story before transitioning cleanly into the practical details a buyer needs."
+objective: "Honor genuine textile heritage without sacrificing e-commerce conversion structure."
 skills_demonstrated:
-  - "Balancing heritage storytelling with conversion-ready structure"
-  - "Writing craft narrative that doesn't sacrifice practical buyer information"
-  - "Heritage-brand tone for Tata Group standards"
+  - "Sequencing narrative and practical information deliberately"
+  - "Writing craft stories that feel researched, not decorative"
+  - "Maintaining conversion clarity inside editorial-feeling copy"
 external_link: "/client-work/taneira/"
-image: ""
-order: 7
-body: |
-  ## Nouveau Organza Tissue Saree
-
-  Drape yourself in understated luxury with this organza tissue saree, where the fabric's natural sheen does the work a heavier embellishment would otherwise need to. Handloom-woven with the lightness organza is known for, it moves with you rather than against you — suited equally to a daytime celebration or an evening one.
-
-  ### Bengal Handloom Cotton Saree
-
-  Bengal's handloom cotton tradition carries centuries of technique into a saree built for comfort without sacrificing occasion-readiness. Breathable, soft against the skin, and finished with the fine detailing that distinguishes genuine handloom from mass production.
-
-  ### Bengal Mulmul Saree
-
-  Mulmul's featherlight weave has clothed generations before this one — here, translated into a saree that carries heritage in its very fabric, not just its border work.
+image: "/content/images/case-taneira.jpg"
+order: 5
 ---
+
+**Bengal Mulmul — Block Print, Dark Yellow, Everyday Corporate**
+
+Drape in elegance with this handfeel Bengal mulmul saree that comes in exclusive block print on yellow base.
+
+Handloom weaving is an integral part of West Bengal's cultural legacy. Crafted in the combination of rich yellow and green block prints accompanied with dark green borders and floral motif pallu, this cotton saree is breezy and extremely comfortable against your skin. This fine versatile mulmul saree can be worn in multifold occasions and can blend easily with your corporate wear as well. Pair up this elegant piece with green blouse and statement earpieces to step out in style.
+
+**Bengal Cotton — Beige, No Zari, Everyday Traditional**
+
+This lightweight Bengal cotton saree comes in beige base and a thick embroidered pink border and pallu to amp up your everyday look.
+
+Originated in Bengal, Bengal cotton sarees are famous for their light weight and airy texture ideal for every season, especially summers. This saree comes in a decorative woven pallu and artistic motif on thick borders. This piece has a pleasing beige tone combined with light pink embroidery that matches with contemporary taste. This Bengal saree is ideal as everyday traditional wear once it is paired with a designer pink blouse.
+
+*(2 of 3 product descriptions from the delivered set, written for Taneira.)*

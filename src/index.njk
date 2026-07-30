@@ -7,6 +7,7 @@ permalink: "/index.html"
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Srijayee | Fashion &amp; Luxury Content Strategist</title>
+<link rel="canonical" href="https://ivygstyles.pages.dev{{ page.url }}">
 <meta name="description" content="Writing brand narratives, building content strategy, and offering personal styling guidance for fashion and luxury brands.">
 <meta property="og:title" content="Srijayee | Fashion & Luxury Content Strategist">
 <meta property="og:description" content="Writing brand narratives, building content strategy, and offering personal styling guidance for fashion and luxury brands.">
@@ -30,110 +31,111 @@ permalink: "/index.html"
   "alumniOf": "Bocconi University"
 }
 </script>
-<script>tailwind = { config: { theme: { extend: { colors: { gold: "#C9A961" } } } } };</script>
 <script src="https://cdn.tailwindcss.com"></script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap" rel="stylesheet">
 <style>
-  body{font-family:'Inter',sans-serif;background-color:#000;color:#fff;overflow-x:hidden;scroll-behavior:smooth;}
+  :root{
+    --paper:#000000; --paper-deep:#14110B;
+    --ink:#D4AF37; --ink-soft:#A08847;
+    --muted:#D6CBB0; --faint:#5C4F2E;
+    --line:#2A2419; --brass:#F0C550;
+  }
+
+  body{font-family:'Inter',sans-serif;background-color:var(--paper);color:var(--ink);overflow-x:hidden;scroll-behavior:smooth;}
   .serif{font-family:'Playfair Display',serif;}
-  a:focus-visible,button:focus-visible{outline:2px solid #fff;outline-offset:3px;}
+  a:focus-visible,button:focus-visible{outline:2px solid var(--ink);outline-offset:3px;}
   @media (prefers-reduced-motion: reduce){ *{transition-duration:0.01ms !important;} }
 </style>
 </head>
-<body class="antialiased selection:bg-gray-700 selection:text-white">
+<body class="antialiased selection:bg-[var(--line)] selection:text-[var(--ink)]">
 
 {% set active = "home" %}
 {% include "nav.njk" %}
 
-<header class="reveal max-w-screen-2xl mx-auto px-8 pt-12 pb-16 md:pt-20 md:pb-24 flex flex-col items-start">
-  <p class="text-xs uppercase tracking-[0.2em] text-gold mb-8 border-b border-gray-800 pb-2">{{ home.eyebrow }}</p>
-  <h1 class="text-5xl md:text-7xl lg:text-8xl serif font-medium leading-tight text-gray-200 max-w-5xl">
-    {{ home.heading_main }} <span class="italic text-gold block md:inline mt-2 md:mt-0">{{ home.heading_emphasis }}</span>
+<header class="max-w-screen-2xl mx-auto px-8 pt-12 pb-16 md:pt-20 md:pb-24 flex flex-col items-start">
+  <p data-hero-reveal class="text-xs uppercase tracking-[0.2em] text-[var(--muted)] mb-8 border-b border-[var(--line)] pb-2">{{ home.eyebrow }}</p>
+  <h1 data-hero-reveal class="text-5xl md:text-7xl lg:text-8xl serif font-medium leading-tight text-[var(--ink)] max-w-5xl">
+    {{ home.heading_main }} <span class="italic text-[var(--muted)] block md:inline mt-2 md:mt-0">{{ home.heading_emphasis }}</span>
   </h1>
-  <p class="text-gray-400 font-light text-lg md:text-xl max-w-2xl mt-10 leading-relaxed">{{ home.subtext }}</p>
-  <div class="flex flex-wrap gap-4 mt-10">
-    <a href="{{ home.cta_primary_href }}" class="inline-block border border-gray-700 px-8 py-4 text-xs uppercase tracking-widest text-gray-300 hover:bg-gold hover:text-black hover:border-gold transition-all duration-500">{{ home.cta_primary_label }}</a>
-    <a href="{{ home.cta_secondary_href }}" class="inline-block bg-gold text-black px-8 py-4 text-xs uppercase tracking-widest hover:bg-gray-300 transition-all duration-500">{{ home.cta_secondary_label }}</a>
+  <p data-hero-reveal class="text-[var(--ink-soft)] font-light text-lg md:text-xl max-w-2xl mt-10 leading-relaxed">{{ home.subtext }}</p>
+  <div data-hero-reveal class="flex flex-wrap gap-4 mt-10">
+    <a href="{{ home.cta_primary_href }}" data-magnetic class="inline-block border border-[var(--line)] px-8 py-4 text-xs uppercase tracking-widest text-[var(--ink-soft)] hover:bg-[var(--ink)] hover:text-[var(--paper)] hover:border-[var(--ink)] transition-all duration-500">{{ home.cta_primary_label }}</a>
+    <a href="{{ home.cta_secondary_href }}" data-magnetic class="inline-block bg-[var(--ink)] text-[var(--paper)] px-8 py-4 text-xs uppercase tracking-widest hover:bg-[var(--ink-soft)] transition-all duration-500">{{ home.cta_secondary_label }}</a>
   </div>
 </header>
 
-<hr class="border-t border-gray-900 max-w-screen-2xl mx-auto">
+<hr class="border-t border-[var(--line)] max-w-screen-2xl mx-auto">
 
-<section id="featured" class="reveal-stagger max-w-screen-2xl mx-auto px-8 py-24">
-  <p class="text-xs uppercase tracking-[0.2em] text-gold mb-12">Selected Work</p>
+<section id="featured" class="w-full">
   {% set featuredCaseStudies = collections.caseStudies | onlyFeatured %}
   {% if featuredCaseStudies.length %}
-  {% set numerals = ["I","II","III","IV","V","VI"] %}
-  {% set tones = ["from-gray-800 to-gray-950","from-stone-800 to-stone-950","from-neutral-800 to-black"] %}
-  <div class="grid md:grid-cols-2 gap-6 md:gap-8">
-    {% for c in featuredCaseStudies | limit(4) %}
-    <a href="/client-work/{{ c.slug }}/" class="group relative block aspect-[4/5] overflow-hidden bg-gray-950 {{ 'md:col-span-2 md:aspect-[16/9]' if loop.first }}">
+    {% for c in featuredCaseStudies | limit(3) %}
+    {% set numerals = ["I","II","III"] %}
+    <a href="/client-work/{{ c.slug }}/" data-reveal data-reveal-group="featured" class="group relative block w-full h-[70vh] md:h-[92vh] overflow-hidden border-b border-[var(--line)]">
       {% if c.image %}
-      <img src="{{ c.image }}" alt="{{ c.client }}" class="absolute inset-0 w-full h-full object-cover grayscale group-hover:grayscale-0 group-hover:scale-105 transition-all duration-700 ease-out">
+      <img src="{{ c.image }}" alt="{{ c.client }}" class="absolute inset-0 w-full h-full object-cover grayscale contrast-125 scale-105 group-hover:grayscale-0 group-hover:scale-100 transition-all duration-[1600ms] ease-out">
+      <div class="absolute inset-0 bg-gradient-to-t from-black via-black/20 to-black/10"></div>
       {% else %}
-      <div class="absolute inset-0 bg-gradient-to-br {{ tones[loop.index0 % 3] }} group-hover:scale-105 transition-transform duration-700 ease-out"></div>
+      <div class="absolute inset-0 bg-[var(--paper-deep)]"></div>
       {% endif %}
-      <div class="absolute inset-0 bg-gradient-to-t from-black via-black/20 to-transparent opacity-90 group-hover:opacity-70 transition-opacity duration-500"></div>
-      <div class="absolute inset-0 flex flex-col justify-end p-6 md:p-8">
-        <span class="serif italic text-lg text-gold/70 group-hover:text-gold transition-colors duration-500 mb-2">{{ numerals[loop.index0] }}</span>
-        <h2 class="text-2xl md:text-4xl serif font-medium text-white leading-tight group-hover:italic transition-all duration-500">{{ c.client }}</h2>
-        {% if c.home_tag %}<span class="mt-3 inline-block text-xs uppercase tracking-widest text-gray-300 border border-gray-600 group-hover:border-gold group-hover:text-gold px-3 py-1 w-fit transition-colors duration-500">{{ c.home_tag }}</span>{% endif %}
+      <div class="relative z-10 h-full w-full max-w-screen-2xl mx-auto px-8 flex flex-col justify-end pb-12 md:pb-16">
+        <div class="flex items-baseline gap-6">
+          <span class="text-lg md:text-2xl serif italic text-[var(--brass)]">{{ numerals[loop.index0] }}</span>
+          <h2 class="text-5xl md:text-8xl serif font-medium text-[var(--ink)] group-hover:italic transition-all duration-500">{{ c.client }}</h2>
+        </div>
+        {% if c.home_tag %}
+        <div class="mt-6 max-w-lg">
+          <span class="block text-[var(--brass)] mb-2 uppercase tracking-widest text-xs">{{ c.home_tag }}</span>
+          <p class="text-[var(--muted)] font-light text-sm md:text-base">{{ c.description }}</p>
+        </div>
+        {% endif %}
       </div>
     </a>
     {% endfor %}
-  </div>
-  <div class="mt-16 space-y-3 border-t border-gray-900 pt-10">
-    {% for c in featuredCaseStudies %}
-    <a href="/client-work/{{ c.slug }}/" class="group flex items-baseline gap-6 py-2 hover:pl-2 transition-all duration-300">
-      <span class="serif italic text-gray-700 text-sm w-6">{{ numerals[loop.index0] }}</span>
-      <span class="text-gray-400 group-hover:text-white transition-colors duration-300 text-sm md:text-base">{{ c.title }}</span>
-      <span class="text-gray-700 text-sm">—</span>
-      <span class="text-gray-600 group-hover:text-gold transition-colors duration-300 text-sm">{{ c.client }}</span>
-    </a>
-    {% endfor %}
-  </div>
   {% else %}
-  <p class="text-gray-600 text-sm">Featured work will appear here once published.</p>
+  <div class="max-w-screen-xl mx-auto px-8 py-24">
+    <p class="text-[var(--muted)] text-sm">Featured work will appear here once published.</p>
+  </div>
   {% endif %}
 </section>
 
-<section id="talent" class="reveal max-w-screen-xl mx-auto px-8 py-24 border-t border-gray-900 mt-12">
+<section id="talent" class="max-w-screen-xl mx-auto px-8 py-24 border-t border-[var(--line)] mt-12">
   <div class="grid grid-cols-1 md:grid-cols-12 gap-16 items-center">
-    <div class="md:col-span-5 w-full aspect-[4/5] overflow-hidden bg-gray-900">
+    <div data-reveal data-reveal-image class="md:col-span-5 w-full aspect-[4/5] overflow-hidden bg-[var(--paper-deep)]">
       <img src="/content/images/about-portrait.jpg" alt="Srijayee, fashion and luxury content strategist" class="w-full h-full object-cover grayscale contrast-125 hover:grayscale-0 transition-all duration-1000 ease-in-out cursor-pointer">
     </div>
-    <div class="md:col-span-7 space-y-8">
-      <h3 class="text-xs uppercase tracking-[0.3em] text-gray-500">{{ home.talent_eyebrow }}</h3>
-      <h2 class="text-4xl md:text-5xl serif leading-tight text-gray-200">{{ home.talent_heading_main }} <br><span class="italic text-gold">{{ home.talent_heading_emphasis }}</span></h2>
-      <div class="space-y-6 text-gray-400 font-light leading-relaxed max-w-2xl text-sm md:text-base">
+    <div data-reveal class="md:col-span-7 space-y-8">
+      <h3 class="text-xs uppercase tracking-[0.3em] text-[var(--muted)]">{{ home.talent_eyebrow }}</h3>
+      <h2 class="text-4xl md:text-5xl serif leading-tight text-[var(--ink)]">{{ home.talent_heading_main }} <br><span class="italic text-[var(--muted)]">{{ home.talent_heading_emphasis }}</span></h2>
+      <div class="space-y-6 text-[var(--ink-soft)] font-light leading-relaxed max-w-2xl text-sm md:text-base">
         {% for p in home.talent_bio.split("\n\n") %}<p>{{ p }}</p>{% endfor %}
       </div>
-      <a href="{{ home.talent_cta_href }}" class="inline-block text-xs uppercase tracking-widest border-b border-gray-700 pb-1 text-gray-300 hover:text-gold hover:border-gold transition">{{ home.talent_cta_label }}</a>
+      <a href="{{ home.talent_cta_href }}" class="inline-block text-xs uppercase tracking-widest border-b border-[var(--line)] pb-1 text-[var(--ink-soft)] hover:text-[var(--brass)] hover:border-[var(--ink)] transition">{{ home.talent_cta_label }}</a>
     </div>
   </div>
 </section>
 
-<section id="offerings" class="reveal-stagger max-w-screen-xl mx-auto px-8 py-24 border-t border-gray-900">
-  <p class="text-xs uppercase tracking-[0.2em] text-gold mb-16 text-center">{{ home.offerings_eyebrow }}</p>
-  <div class="grid grid-cols-1 md:grid-cols-3 gap-12 md:gap-8 divide-y md:divide-y-0 md:divide-x divide-gray-900">
+<section id="offerings" class="max-w-screen-xl mx-auto px-8 py-24 border-t border-[var(--line)]">
+  <p class="text-xs uppercase tracking-[0.2em] text-[var(--muted)] mb-16 text-center">{{ home.offerings_eyebrow }}</p>
+  <div class="grid grid-cols-1 md:grid-cols-3 gap-12 md:gap-8 divide-y md:divide-y-0 md:divide-x divide-[var(--line)]">
     {% for o in home.offerings %}
-    <div class="pt-8 md:pt-0 md:px-8 flex flex-col items-start">
-      <span class="serif italic text-xl text-gray-600 mb-6">{{ o.roman }}</span>
-      <h3 class="text-xl serif mb-4 text-gray-200">{{ o.title }}</h3>
-      <p class="text-sm text-gray-500 font-light leading-relaxed flex-grow">{{ o.description }}</p>
-      <a href="{{ o.link_href }}" class="mt-6 text-xs uppercase tracking-widest border-b border-gray-700 pb-1 text-gray-400 hover:text-gold hover:border-gold transition">{{ o.link_label }}</a>
+    <div data-reveal data-reveal-group="offerings" class="pt-8 md:pt-0 md:px-8 flex flex-col items-start">
+      <span class="serif italic text-xl text-[var(--muted)] mb-6">{{ o.roman }}</span>
+      <h3 class="text-xl serif mb-4 text-[var(--ink)]">{{ o.title }}</h3>
+      <p class="text-sm text-[var(--muted)] font-light leading-relaxed flex-grow">{{ o.description }}</p>
+      <a href="{{ o.link_href }}" class="mt-6 text-xs uppercase tracking-widest border-b border-[var(--line)] pb-1 text-[var(--ink-soft)] hover:text-[var(--brass)] hover:border-[var(--ink)] transition">{{ o.link_label }}</a>
     </div>
     {% endfor %}
   </div>
   <div class="mt-20 text-center">
-    <a href="{{ home.closing_cta_href }}" class="inline-block border border-gray-700 px-10 py-5 text-xs uppercase tracking-widest text-gray-300 hover:bg-gold hover:text-black hover:border-gold transition-all duration-500">{{ home.closing_cta_label }}</a>
+    <a href="{{ home.closing_cta_href }}" data-magnetic class="inline-block border border-[var(--line)] px-10 py-5 text-xs uppercase tracking-widest text-[var(--ink-soft)] hover:bg-[var(--ink)] hover:text-[var(--paper)] hover:border-[var(--ink)] transition-all duration-500">{{ home.closing_cta_label }}</a>
   </div>
 </section>
 
 {% include "footer.njk" %}
 
+{% include "animations.njk" %}
 {% include "analytics.njk" %}
-{% include "motion.njk" %}
 </body>
 </html>

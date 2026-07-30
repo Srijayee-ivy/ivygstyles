@@ -49,6 +49,7 @@ module.exports = function (eleventyConfig) {
   // Singleton page-copy files -> global data (e.g. `home.eyebrow` in templates)
   eleventyConfig.addGlobalData("home", () => readJSON("pages/home.json"));
   eleventyConfig.addGlobalData("about", () => readJSON("pages/about.json"));
+  eleventyConfig.addGlobalData("mediaKit", () => readJSON("pages/media-kit.json"));
   eleventyConfig.addGlobalData("contact", () => readJSON("pages/contact.json"));
   eleventyConfig.addGlobalData("connect", () => readJSON("pages/connect.json"));
   eleventyConfig.addGlobalData("styling", () => readJSON("pages/styling.json"));
@@ -56,7 +57,6 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addGlobalData("services", () => readJSON("pages/services.json"));
   eleventyConfig.addGlobalData("editorsDesk", () => readJSON("pages/editors-desk.json"));
   eleventyConfig.addGlobalData("booking", () => readJSON("pages/booking.json"));
-  eleventyConfig.addGlobalData("mediaKit", () => readJSON("pages/media-kit.json"));
   eleventyConfig.addGlobalData("social", () => readJSON("settings/social.json"));
 
   // Folder collections
@@ -82,7 +82,7 @@ module.exports = function (eleventyConfig) {
 
   eleventyConfig.addCollection("writingSamples", () => {
     return readFolder("writing-samples")
-      .map(p => ({ ...p, contentHtml: md.render(p.body || "") }))
+      .map(w => ({ ...w, contentHtml: md.render(w.body || "") }))
       .sort((a, b) => (a.order || 0) - (b.order || 0));
   });
 

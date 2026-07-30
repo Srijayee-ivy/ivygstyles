@@ -13,18 +13,40 @@ eleventyComputed:
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>{{ title }}</title>
+<link rel="canonical" href="https://ivygstyles.pages.dev{{ page.url }}">
 <meta name="description" content="{{ report.summary }}">
-<script>tailwind = { config: { theme: { extend: { colors: { gold: "#C9A961" } } } } };</script>
+<meta property="og:title" content="{{ title }}">
+<meta property="og:description" content="{{ report.summary }}">
+<meta property="og:type" content="article">
+{% if report.image %}<meta property="og:image" content="https://ivygstyles.pages.dev{{ report.image }}">{% endif %}
+<meta name="twitter:card" content="summary_large_image">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": {{ report.title | dump | safe }},
+  "description": {{ report.summary | dump | safe }},
+  "datePublished": "{{ report.date | isoDate }}",
+  "author": { "@type": "Person", "name": "Srijayee Ghosh" }
+}
+</script>
 <script src="https://cdn.tailwindcss.com"></script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap" rel="stylesheet">
 <style>
-  body{font-family:'Inter',sans-serif;background-color:#000;color:#fff;overflow-x:hidden;}
+  :root{
+    --paper:#000000; --paper-deep:#14110B;
+    --ink:#D4AF37; --ink-soft:#A08847;
+    --muted:#D6CBB0; --faint:#5C4F2E;
+    --line:#2A2419; --brass:#F0C550;
+  }
+
+  body{font-family:'Inter',sans-serif;background-color:var(--paper);color:var(--ink);overflow-x:hidden;}
   .serif{font-family:'Playfair Display',serif;}
-  a:focus-visible{outline:2px solid #fff;outline-offset:3px;}
+  a:focus-visible{outline:2px solid var(--ink);outline-offset:3px;}
 </style>
 </head>
-<body class="antialiased selection:bg-gray-700 selection:text-white">
+<body class="antialiased selection:bg-[var(--line)] selection:text-[var(--ink)]">
 
 {% set active = "trend-reports" %}
 {% include "nav.njk" %}
@@ -32,36 +54,36 @@ eleventyComputed:
 {% include "breadcrumbs.njk" %}
 
 <header class="max-w-screen-md mx-auto px-8 pt-10 pb-8">
-  <p class="text-xs text-gray-600 mb-4">{{ report.date | dateFormat }}</p>
-  <h1 class="text-3xl md:text-5xl serif leading-tight text-gray-100 mb-6">{{ report.title }}</h1>
-  <p class="text-gray-400 font-light leading-relaxed text-lg">{{ report.summary }}</p>
+  <p class="text-xs text-[var(--muted)] mb-4">{{ report.date | dateFormat }}</p>
+  <h1 class="text-3xl md:text-5xl serif leading-tight text-[var(--ink)] mb-6">{{ report.title }}</h1>
+  <p class="text-[var(--ink-soft)] font-light leading-relaxed text-lg">{{ report.summary }}</p>
 </header>
 
-<section class="max-w-screen-md mx-auto px-8 py-10 border-t border-gray-900">
-  <p class="text-xs uppercase tracking-widest text-gray-600 mb-4">Emerging Trends</p>
+<section class="max-w-screen-md mx-auto px-8 py-10 border-t border-[var(--line)]">
+  <p class="text-xs uppercase tracking-widest text-[var(--muted)] mb-4">Emerging Trends</p>
   <ul class="space-y-3 mb-10">
     {% for item in report.emerging_trends %}
-    <li class="flex gap-3 text-gray-400 font-light leading-relaxed"><span class="text-gray-700 flex-shrink-0">→</span><span>{{ item }}</span></li>
+    <li class="flex gap-3 text-[var(--ink-soft)] font-light leading-relaxed"><span class="text-[var(--faint)] flex-shrink-0">→</span><span>{{ item }}</span></li>
     {% endfor %}
   </ul>
 
   {% if report.market_observations %}
-  <p class="text-xs uppercase tracking-widest text-gray-600 mb-3">Market Observations</p>
-  <p class="text-gray-400 font-light leading-relaxed mb-10">{{ report.market_observations }}</p>
+  <p class="text-xs uppercase tracking-widest text-[var(--muted)] mb-3">Market Observations</p>
+  <p class="text-[var(--ink-soft)] font-light leading-relaxed mb-10">{{ report.market_observations }}</p>
   {% endif %}
 
   {% if report.strategic_implications %}
-  <p class="text-xs uppercase tracking-widest text-gray-600 mb-3">Strategic Implications</p>
-  <p class="text-gray-400 font-light leading-relaxed">{{ report.strategic_implications }}</p>
+  <p class="text-xs uppercase tracking-widest text-[var(--muted)] mb-3">Strategic Implications</p>
+  <p class="text-[var(--ink-soft)] font-light leading-relaxed">{{ report.strategic_implications }}</p>
   {% endif %}
 </section>
 
-<footer class="max-w-screen-md mx-auto px-8 py-16 border-t border-gray-900 text-center">
-  <a href="/trend-reports/" class="text-xs uppercase tracking-widest border-b border-gray-700 pb-1 text-gray-300 hover:text-gold hover:border-gold transition">← All Trend Reports</a>
+<footer class="max-w-screen-md mx-auto px-8 py-16 border-t border-[var(--line)] text-center">
+  <a href="/trend-reports/" class="text-xs uppercase tracking-widest border-b border-[var(--line)] pb-1 text-[var(--ink-soft)] hover:text-[var(--brass)] hover:border-[var(--ink)] transition">← All Trend Reports</a>
 </footer>
 
 {% include "footer.njk" %}
+{% include "animations.njk" %}
 {% include "analytics.njk" %}
-{% include "motion.njk" %}
 </body>
 </html>

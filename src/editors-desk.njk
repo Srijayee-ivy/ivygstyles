@@ -7,79 +7,86 @@ permalink: "/editors-desk.html"
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Editor's Desk | Srijayee</title>
+<link rel="canonical" href="https://ivygstyles.pages.dev{{ page.url }}">
 <meta name="description" content="Trend notes, current obsessions, and a reading list — updated roughly monthly.">
 <meta property="og:title" content="Editor's Desk | Srijayee">
 <meta property="og:description" content="Trend notes, current obsessions, and a reading list — updated roughly monthly.">
 <meta property="og:type" content="website">
 <meta name="twitter:card" content="summary_large_image">
-<script>tailwind = { config: { theme: { extend: { colors: { gold: "#C9A961" } } } } };</script>
 <script src="https://cdn.tailwindcss.com"></script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap" rel="stylesheet">
 <style>
-  body{font-family:'Inter',sans-serif;background-color:#000;color:#fff;overflow-x:hidden;}
+  :root{
+    --paper:#000000; --paper-deep:#14110B;
+    --ink:#D4AF37; --ink-soft:#A08847;
+    --muted:#D6CBB0; --faint:#5C4F2E;
+    --line:#2A2419; --brass:#F0C550;
+  }
+
+  body{font-family:'Inter',sans-serif;background-color:var(--paper);color:var(--ink);overflow-x:hidden;}
   .serif{font-family:'Playfair Display',serif;}
-  a:focus-visible{outline:2px solid #fff;outline-offset:3px;}
+  a:focus-visible{outline:2px solid var(--ink);outline-offset:3px;}
 </style>
 </head>
-<body class="antialiased selection:bg-gray-700 selection:text-white">
+<body class="antialiased selection:bg-[var(--line)] selection:text-[var(--ink)]">
 
 {% set active = "editors-desk" %}
 {% include "nav.njk" %}
 
 <header class="max-w-screen-md mx-auto px-8 pt-12 pb-10">
   <div class="flex items-center justify-between mb-6">
-    <p class="text-xs uppercase tracking-[0.2em] text-gold">{{ editorsDesk.eyebrow }}</p>
-    <span class="text-xs uppercase tracking-widest text-gray-600 border border-gray-800 rounded-full px-3 py-1">{{ editorsDesk.issue_label }}</span>
+    <p class="text-xs uppercase tracking-[0.2em] text-[var(--muted)]">{{ editorsDesk.eyebrow }}</p>
+    <span class="text-xs uppercase tracking-widest text-[var(--muted)] border border-[var(--line)] rounded-full px-3 py-1">{{ editorsDesk.issue_label }}</span>
   </div>
-  <h1 class="text-4xl md:text-6xl serif font-medium leading-tight text-gray-200 mb-8">{{ editorsDesk.heading }}</h1>
-  <div class="space-y-5 text-gray-400 font-light leading-relaxed text-base md:text-lg max-w-xl">
+  <h1 data-hero-reveal class="text-4xl md:text-6xl serif font-medium leading-tight text-[var(--ink)] mb-8">{{ editorsDesk.heading }}</h1>
+  <div class="space-y-5 text-[var(--ink-soft)] font-light leading-relaxed text-base md:text-lg max-w-xl">
     {% for p in editorsDesk.letter.split("\n\n") %}<p>{{ p }}</p>{% endfor %}
   </div>
 </header>
 
-<section class="max-w-screen-md mx-auto px-8 py-12 border-t border-gray-900">
-  <h2 class="serif text-2xl text-gray-200 mb-6">{{ editorsDesk.trend_radar_heading }}</h2>
+<section class="max-w-screen-md mx-auto px-8 py-12 border-t border-[var(--line)]">
+  <h2 class="serif text-2xl text-[var(--ink)] mb-6">{{ editorsDesk.trend_radar_heading }}</h2>
   <ul class="space-y-4">
     {% for item in editorsDesk.trend_radar %}
-    <li class="flex gap-4 text-gray-400 font-light leading-relaxed">
-      <span class="text-gray-700 flex-shrink-0">→</span>
+    <li class="flex gap-4 text-[var(--ink-soft)] font-light leading-relaxed">
+      <span class="text-[var(--faint)] flex-shrink-0">→</span>
       <span>{{ item }}</span>
     </li>
     {% endfor %}
   </ul>
 </section>
 
-<section class="max-w-screen-md mx-auto px-8 py-12 border-t border-gray-900">
-  <h2 class="serif text-2xl text-gray-200 mb-6">{{ editorsDesk.obsessions_heading }}</h2>
+<section class="max-w-screen-md mx-auto px-8 py-12 border-t border-[var(--line)]">
+  <h2 class="serif text-2xl text-[var(--ink)] mb-6">{{ editorsDesk.obsessions_heading }}</h2>
   <ul class="space-y-4">
     {% for item in editorsDesk.obsessions %}
-    <li class="flex gap-4 text-gray-400 font-light leading-relaxed">
-      <span class="text-gray-700 flex-shrink-0">→</span>
+    <li class="flex gap-4 text-[var(--ink-soft)] font-light leading-relaxed">
+      <span class="text-[var(--faint)] flex-shrink-0">→</span>
       <span>{{ item }}</span>
     </li>
     {% endfor %}
   </ul>
 </section>
 
-<section class="max-w-screen-md mx-auto px-8 py-12 border-t border-gray-900">
-  <h2 class="serif text-2xl text-gray-200 mb-6">{{ editorsDesk.reading_list_heading }}</h2>
+<section class="max-w-screen-md mx-auto px-8 py-12 border-t border-[var(--line)]">
+  <h2 class="serif text-2xl text-[var(--ink)] mb-6">{{ editorsDesk.reading_list_heading }}</h2>
   <ul class="space-y-4">
     {% for item in editorsDesk.reading_list %}
-    <li class="flex gap-4 text-gray-400 font-light leading-relaxed">
-      <span class="text-gray-700 flex-shrink-0">→</span>
+    <li class="flex gap-4 text-[var(--ink-soft)] font-light leading-relaxed">
+      <span class="text-[var(--faint)] flex-shrink-0">→</span>
       <span>{{ item }}</span>
     </li>
     {% endfor %}
   </ul>
 </section>
 
-<section class="max-w-screen-md mx-auto px-8 py-12 border-t border-gray-900">
-  <p class="serif italic text-xl text-gray-400 leading-relaxed">{{ editorsDesk.closing_note }}</p>
+<section class="max-w-screen-md mx-auto px-8 py-12 border-t border-[var(--line)]">
+  <p class="serif italic text-xl text-[var(--ink-soft)] leading-relaxed">{{ editorsDesk.closing_note }}</p>
 </section>
 
 {% include "footer.njk" %}
+{% include "animations.njk" %}
 {% include "analytics.njk" %}
-{% include "motion.njk" %}
 </body>
 </html>

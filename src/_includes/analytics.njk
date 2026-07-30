@@ -3,36 +3,32 @@
   site already runs on Cloudflare Pages.
   Setup (2 minutes): Cloudflare dashboard → your domain → Analytics & Logs →
   Web Analytics → "Add a site" → copy the token it gives you → paste it below
-  in place of YOUR_CF_TOKEN_HERE. Until you do, this script quietly does nothing.
+  in place of YOUR_TOKEN_HERE. Until you do, this script quietly does nothing.
 -->
-<script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "YOUR_CF_TOKEN_HERE"}'></script>
+<script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "YOUR_TOKEN_HERE"}'></script>
 
 <!--
-  Google Analytics 4 — free, gives you the funnel/audience/traffic-source detail
-  Cloudflare's analytics doesn't. Setup: analytics.google.com → Admin → create a
-  GA4 property for this site → it gives you a Measurement ID like "G-XXXXXXXXXX" →
-  replace G-XXXXXXXXXX in BOTH lines below. Until you do, this loads a script
-  that talks to a Google endpoint that doesn't recognise the placeholder ID, so
-  it silently does nothing rather than erroring.
+  Google Analytics 4.
+  Setup: analytics.google.com → Admin → Create property → Web data stream →
+  copy the Measurement ID (starts with "G-") → paste it in BOTH places below.
+  Until you do, these requests just go nowhere — no error, no tracking.
 -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-8MGR3W341X"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
-  gtag('config', 'G-XXXXXXXXXX');
+  gtag('config', 'G-8MGR3W341X');
 </script>
 
 <!--
-  Microsoft Clarity — free, gives you session recordings and click/scroll
-  heatmaps (the closest thing to "watching a visitor use the site" that exists
-  for free). Setup: clarity.microsoft.com → New project → it gives you a
-  Project ID → replace YOUR_CLARITY_ID_HERE below.
+  Microsoft Clarity — free session recordings + heatmaps.
+  Live and tracking under the Ivygstyles project (ID: xun8d9hbl2).
 -->
 <script>
   (function(c,l,a,r,i,t,y){
-    c[a] = c[a] || function () { (c[a].q = c[a].q || []).push(arguments) };
-    t = l.createElement(r); t.async = 1; t.src = "https://www.clarity.ms/tag/" + i;
-    y = l.getElementsByTagName(r)[0]; y.parentNode.insertBefore(t, y);
-  })(window, document, "clarity", "script", "YOUR_CLARITY_ID_HERE");
+    c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+    t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+    y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+  })(window, document, "clarity", "script", "xun8d9hbl2");
 </script>
