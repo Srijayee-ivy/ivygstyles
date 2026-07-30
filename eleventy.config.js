@@ -56,6 +56,7 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addGlobalData("services", () => readJSON("pages/services.json"));
   eleventyConfig.addGlobalData("editorsDesk", () => readJSON("pages/editors-desk.json"));
   eleventyConfig.addGlobalData("booking", () => readJSON("pages/booking.json"));
+  eleventyConfig.addGlobalData("mediaKit", () => readJSON("pages/media-kit.json"));
   eleventyConfig.addGlobalData("social", () => readJSON("settings/social.json"));
 
   // Folder collections
@@ -80,7 +81,9 @@ module.exports = function (eleventyConfig) {
   });
 
   eleventyConfig.addCollection("writingSamples", () => {
-    return readFolder("writing-samples").sort((a, b) => (a.order || 0) - (b.order || 0));
+    return readFolder("writing-samples")
+      .map(p => ({ ...p, contentHtml: md.render(p.body || "") }))
+      .sort((a, b) => (a.order || 0) - (b.order || 0));
   });
 
   // Search index: built in JS (not in-template) so values are correctly JSON-escaped

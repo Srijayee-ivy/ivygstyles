@@ -8,23 +8,17 @@ permalink: "/trend-reports/index.html"
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Trend Reports | Srijayee</title>
 <meta name="description" content="Fashion and luxury trend reports — emerging patterns, market observations, and strategic implications.">
+<script>tailwind = { config: { theme: { extend: { colors: { gold: "#C9A961" } } } } };</script>
 <script src="https://cdn.tailwindcss.com"></script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap" rel="stylesheet">
 <style>
-  :root{
-    --paper:#000000; --paper-deep:#14110B;
-    --ink:#D4AF37; --ink-soft:#A08847;
-    --muted:#D6CBB0; --faint:#5C4F2E;
-    --line:#2A2419; --brass:#F0C550;
-  }
-
-  body{font-family:'Inter',sans-serif;background-color:var(--paper);color:var(--ink);overflow-x:hidden;}
+  body{font-family:'Inter',sans-serif;background-color:#000;color:#fff;overflow-x:hidden;}
   .serif{font-family:'Playfair Display',serif;}
-  a:focus-visible{outline:2px solid var(--ink);outline-offset:3px;}
+  a:focus-visible{outline:2px solid #fff;outline-offset:3px;}
 </style>
 </head>
-<body class="antialiased selection:bg-[var(--line)] selection:text-[var(--ink)]">
+<body class="antialiased selection:bg-gray-700 selection:text-white">
 
 {% set active = "trend-reports" %}
 {% include "nav.njk" %}
@@ -32,26 +26,26 @@ permalink: "/trend-reports/index.html"
 {% include "breadcrumbs.njk" %}
 
 <header class="max-w-screen-xl mx-auto px-8 pt-8 pb-16 max-w-2xl">
-  <p class="text-xs uppercase tracking-[0.2em] text-[var(--muted)] mb-6">Trend Reports</p>
-  <h1 data-hero-reveal class="text-4xl md:text-6xl serif font-medium leading-tight text-[var(--ink)]">Where fashion and luxury are heading next.</h1>
+  <p class="text-xs uppercase tracking-[0.2em] text-gold mb-6">Trend Reports</p>
+  <h1 class="text-4xl md:text-6xl serif font-medium leading-tight text-gray-200">Where fashion and luxury are heading next.</h1>
 </header>
 
 <section class="max-w-screen-xl mx-auto px-8 pb-24">
   {% if collections.trendReports.length %}
     {% for t in collections.trendReports %}
-    <a href="/trend-reports/{{ t.slug }}/" data-reveal class="group block border-t border-[var(--line)] py-10 {{ 'border-b' if loop.last }}">
-      <p class="text-xs text-[var(--muted)] mb-2">{{ t.date | dateFormat }}</p>
-      <h2 class="text-2xl md:text-3xl serif text-[var(--ink-soft)] group-hover:text-[var(--brass)] group-hover:italic transition-all duration-500 mb-3 max-w-2xl">{{ t.title }}</h2>
-      <p class="text-[var(--muted)] font-light leading-relaxed max-w-xl">{{ t.summary }}</p>
+    <a href="/trend-reports/{{ t.slug }}/" class="group block border-t border-gray-900 py-10 {{ 'border-b' if loop.last }}">
+      <p class="text-xs text-gray-600 mb-2">{{ t.date | dateFormat }}</p>
+      <h2 class="text-2xl md:text-3xl serif text-gray-300 group-hover:text-gold group-hover:italic transition-all duration-500 mb-3 max-w-2xl">{{ t.title }}</h2>
+      <p class="text-gray-500 font-light leading-relaxed max-w-xl">{{ t.summary }}</p>
     </a>
     {% endfor %}
   {% else %}
-    <div class="py-14 text-[var(--muted)] text-sm">Trend reports will appear here once published in the CMS.</div>
+    <div class="py-14 text-gray-600 text-sm">Trend reports will appear here once published in the CMS.</div>
   {% endif %}
 </section>
 
 {% include "footer.njk" %}
-{% include "animations.njk" %}
 {% include "analytics.njk" %}
+{% include "motion.njk" %}
 </body>
 </html>

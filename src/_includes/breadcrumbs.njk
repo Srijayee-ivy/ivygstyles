@@ -1,12 +1,28 @@
 {% if breadcrumbs %}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {% for b in breadcrumbs %}
+    {
+      "@type": "ListItem",
+      "position": {{ loop.index }},
+      "name": {{ b.label | dump | safe }},
+      "item": "https://ivygstyles.pages.dev{{ b.url }}"
+    }{{ "," if not loop.last }}
+    {% endfor %}
+  ]
+}
+</script>
 <nav aria-label="Breadcrumb" class="max-w-screen-xl mx-auto px-8 pt-2">
-  <ol class="flex flex-wrap items-center gap-2 text-xs uppercase tracking-widest text-[var(--muted)]">
+  <ol class="flex flex-wrap items-center gap-2 text-xs uppercase tracking-widest text-gray-600">
     {% for b in breadcrumbs %}
       {% if not loop.last %}
-      <li><a href="{{ b.url }}" class="hover:text-[var(--ink-soft)] transition">{{ b.label }}</a></li>
-      <li aria-hidden="true" class="text-[var(--faint)]">/</li>
+      <li><a href="{{ b.url }}" class="hover:text-gray-300 transition">{{ b.label }}</a></li>
+      <li aria-hidden="true" class="text-gray-800">/</li>
       {% else %}
-      <li aria-current="page" class="text-[var(--ink-soft)]">{{ b.label }}</li>
+      <li aria-current="page" class="text-gray-400">{{ b.label }}</li>
       {% endif %}
     {% endfor %}
   </ol>

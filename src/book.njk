@@ -8,44 +8,38 @@ permalink: "/book.html"
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Book a Session | Srijayee</title>
 <meta name="description" content="Book a discovery call or personal styling session.">
+<script>tailwind = { config: { theme: { extend: { colors: { gold: "#C9A961" } } } } };</script>
 <script src="https://cdn.tailwindcss.com"></script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap" rel="stylesheet">
 <style>
-  :root{
-    --paper:#000000; --paper-deep:#14110B;
-    --ink:#D4AF37; --ink-soft:#A08847;
-    --muted:#D6CBB0; --faint:#5C4F2E;
-    --line:#2A2419; --brass:#F0C550;
-  }
-
-  body{font-family:'Inter',sans-serif;background-color:var(--paper);color:var(--ink);overflow-x:hidden;}
+  body{font-family:'Inter',sans-serif;background-color:#000;color:#fff;overflow-x:hidden;}
   .serif{font-family:'Playfair Display',serif;}
-  a:focus-visible,input:focus-visible,textarea:focus-visible,button:focus-visible{outline:2px solid var(--ink);outline-offset:3px;}
+  a:focus-visible,input:focus-visible,textarea:focus-visible,button:focus-visible{outline:2px solid #fff;outline-offset:3px;}
   input,textarea{background:transparent;}
-  input:focus,textarea:focus{outline:none;border-bottom-color:var(--ink);}
+  input:focus,textarea:focus{outline:none;border-bottom-color:#fff;}
 </style>
 </head>
-<body class="antialiased selection:bg-[var(--line)] selection:text-[var(--ink)]">
+<body class="antialiased selection:bg-gray-700 selection:text-white">
 
 {% set active = "book" %}
 {% include "nav.njk" %}
 
 <header class="max-w-screen-lg mx-auto px-8 pt-12 pb-8 max-w-2xl">
-  <p class="text-xs uppercase tracking-[0.2em] text-[var(--muted)] mb-6">{{ booking.eyebrow }}</p>
-  <h1 data-hero-reveal class="text-4xl md:text-6xl serif font-medium leading-tight text-[var(--ink)]">{{ booking.heading }}</h1>
-  <p class="text-[var(--ink-soft)] font-light text-base md:text-lg mt-6 leading-relaxed max-w-xl">{{ booking.subtext }}</p>
+  <p class="text-xs uppercase tracking-[0.2em] text-gold mb-6">{{ booking.eyebrow }}</p>
+  <h1 class="text-4xl md:text-6xl serif font-medium leading-tight text-gray-200">{{ booking.heading }}</h1>
+  <p class="text-gray-400 font-light text-base md:text-lg mt-6 leading-relaxed max-w-xl">{{ booking.subtext }}</p>
 </header>
 
 <section class="max-w-screen-lg mx-auto px-8 py-8">
   <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-14">
     {% for o in booking.options %}
-    <div data-reveal data-reveal-group="booking-options" class="border border-[var(--line)] p-6">
+    <div class="border border-gray-800 p-6">
       <div class="flex justify-between items-baseline mb-2">
-        <h3 class="serif text-xl text-[var(--ink)]">{{ o.name }}</h3>
-        <span class="text-xs uppercase tracking-widest text-[var(--muted)] flex-shrink-0 ml-4">{{ o.duration }}</span>
+        <h3 class="serif text-xl text-gray-200">{{ o.name }}</h3>
+        <span class="text-xs uppercase tracking-widest text-gray-500 flex-shrink-0 ml-4">{{ o.duration }}</span>
       </div>
-      <p class="text-sm text-[var(--muted)] font-light">{{ o.description }}</p>
+      <p class="text-sm text-gray-500 font-light">{{ o.description }}</p>
     </div>
     {% endfor %}
   </div>
@@ -57,43 +51,43 @@ permalink: "/book.html"
     3. Paste it into "Scheduler Embed URL" on the Booking page in /admin
     Until that's set, this section shows a plain-language fallback instead of a broken embed.
   -->
-  <div class="border border-[var(--line)] min-h-[500px] mb-6">
+  <div class="border border-gray-800 min-h-[500px] mb-6">
     {% if booking.scheduler_embed_url %}
     <iframe src="{{ booking.scheduler_embed_url }}" class="w-full h-[600px]" frameborder="0" title="Booking calendar"></iframe>
     {% else %}
     <div class="flex items-center justify-center h-[500px] px-8 text-center">
-      <p class="text-[var(--muted)] text-sm max-w-md">{{ booking.scheduler_note }}</p>
+      <p class="text-gray-600 text-sm max-w-md">{{ booking.scheduler_note }}</p>
     </div>
     {% endif %}
   </div>
 </section>
 
-<section class="max-w-screen-lg mx-auto px-8 py-16 border-t border-[var(--line)]">
-  <p class="text-xs uppercase tracking-[0.2em] text-[var(--muted)] mb-2">Intake</p>
-  <h2 class="text-3xl serif text-[var(--ink)] mb-3">{{ booking.intake_heading }}</h2>
-  <p class="text-[var(--muted)] font-light text-sm mb-10 max-w-xl">{{ booking.intake_note }}</p>
+<section class="max-w-screen-lg mx-auto px-8 py-16 border-t border-gray-900">
+  <p class="text-xs uppercase tracking-[0.2em] text-gold mb-2">Intake</p>
+  <h2 class="text-3xl serif text-gray-200 mb-3">{{ booking.intake_heading }}</h2>
+  <p class="text-gray-500 font-light text-sm mb-10 max-w-xl">{{ booking.intake_note }}</p>
 
   <form id="intakeForm" class="flex flex-col gap-8 max-w-xl">
     <div>
-      <label class="block text-xs uppercase tracking-widest text-[var(--muted)] mb-2">Name</label>
-      <input type="text" id="intakeName" required class="w-full border-0 border-b border-[var(--line)] py-2 text-[var(--ink)] text-base">
+      <label class="block text-xs uppercase tracking-widest text-gray-500 mb-2">Name</label>
+      <input type="text" id="intakeName" required class="w-full border-0 border-b border-gray-700 py-2 text-white text-base">
     </div>
     <div>
-      <label class="block text-xs uppercase tracking-widest text-[var(--muted)] mb-2">Email</label>
-      <input type="email" id="intakeEmail" required class="w-full border-0 border-b border-[var(--line)] py-2 text-[var(--ink)] text-base">
+      <label class="block text-xs uppercase tracking-widest text-gray-500 mb-2">Email</label>
+      <input type="email" id="intakeEmail" required class="w-full border-0 border-b border-gray-700 py-2 text-white text-base">
     </div>
     <div>
-      <label class="block text-xs uppercase tracking-widest text-[var(--muted)] mb-2">What are you booking?</label>
-      <select id="intakeType" class="w-full border-0 border-b border-[var(--line)] py-2 bg-[var(--paper)] text-[var(--ink)] text-base">
+      <label class="block text-xs uppercase tracking-widest text-gray-500 mb-2">What are you booking?</label>
+      <select id="intakeType" class="w-full border-0 border-b border-gray-700 py-2 bg-black text-white text-base">
         {% for o in booking.options %}<option>{{ o.name }}</option>{% endfor %}
       </select>
     </div>
     <div>
-      <label class="block text-xs uppercase tracking-widest text-[var(--muted)] mb-2">A little context</label>
-      <textarea id="intakeContext" required placeholder="Goals, timeline, anything useful before we talk" class="w-full border-0 border-b border-[var(--line)] py-2 text-[var(--ink)] text-base min-h-[120px] resize-y"></textarea>
+      <label class="block text-xs uppercase tracking-widest text-gray-500 mb-2">A little context</label>
+      <textarea id="intakeContext" required placeholder="Goals, timeline, anything useful before we talk" class="w-full border-0 border-b border-gray-700 py-2 text-white text-base min-h-[120px] resize-y"></textarea>
     </div>
-    <button type="submit" data-magnetic class="self-start bg-[var(--ink)] text-[var(--paper)] px-10 py-4 text-xs uppercase tracking-widest hover:bg-[var(--ink-soft)] transition">Send Intake Details</button>
-    <p class="text-xs text-[var(--muted)]">{{ booking.form_note }}</p>
+    <button type="submit" class="self-start bg-gold text-black px-10 py-4 text-xs uppercase tracking-widest hover:bg-gray-300 transition">Send Intake Details</button>
+    <p class="text-xs text-gray-500">{{ booking.form_note }}</p>
   </form>
 </section>
 
@@ -111,7 +105,7 @@ document.getElementById('intakeForm').addEventListener('submit', function(e){
   window.location.href = 'mailto:{{ social.contact_email }}?subject=' + subject + '&body=' + body;
 });
 </script>
-{% include "animations.njk" %}
 {% include "analytics.njk" %}
+{% include "motion.njk" %}
 </body>
 </html>

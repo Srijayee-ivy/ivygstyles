@@ -3,6 +3,36 @@
   site already runs on Cloudflare Pages.
   Setup (2 minutes): Cloudflare dashboard → your domain → Analytics & Logs →
   Web Analytics → "Add a site" → copy the token it gives you → paste it below
-  in place of YOUR_TOKEN_HERE. Until you do, this script quietly does nothing.
+  in place of YOUR_CF_TOKEN_HERE. Until you do, this script quietly does nothing.
 -->
-<script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "YOUR_TOKEN_HERE"}'></script>
+<script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "YOUR_CF_TOKEN_HERE"}'></script>
+
+<!--
+  Google Analytics 4 — free, gives you the funnel/audience/traffic-source detail
+  Cloudflare's analytics doesn't. Setup: analytics.google.com → Admin → create a
+  GA4 property for this site → it gives you a Measurement ID like "G-XXXXXXXXXX" →
+  replace G-XXXXXXXXXX in BOTH lines below. Until you do, this loads a script
+  that talks to a Google endpoint that doesn't recognise the placeholder ID, so
+  it silently does nothing rather than erroring.
+-->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-XXXXXXXXXX');
+</script>
+
+<!--
+  Microsoft Clarity — free, gives you session recordings and click/scroll
+  heatmaps (the closest thing to "watching a visitor use the site" that exists
+  for free). Setup: clarity.microsoft.com → New project → it gives you a
+  Project ID → replace YOUR_CLARITY_ID_HERE below.
+-->
+<script>
+  (function(c,l,a,r,i,t,y){
+    c[a] = c[a] || function () { (c[a].q = c[a].q || []).push(arguments) };
+    t = l.createElement(r); t.async = 1; t.src = "https://www.clarity.ms/tag/" + i;
+    y = l.getElementsByTagName(r)[0]; y.parentNode.insertBefore(t, y);
+  })(window, document, "clarity", "script", "YOUR_CLARITY_ID_HERE");
+</script>

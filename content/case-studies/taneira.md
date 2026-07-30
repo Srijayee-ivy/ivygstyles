@@ -8,7 +8,7 @@ challenge: "Heritage handloom pieces carry genuine craft stories, but e-commerce
 approach: "Structured each product narrative to open with the craft story, then transition cleanly into the practical details (fabric, care, fit) a buyer needs to complete a purchase."
 outcome: "Copy that reads as craft storytelling first, with conversion-ready structure built in rather than bolted on."
 link: "/blog/"
-image: "/content/images/case-taneira.jpg"
+image: ""
 featured: false
 order: 4
 home_tag: ""

@@ -304,6 +304,26 @@ collections:
           - { label: "Intake Section — Note", name: "intake_note", widget: "text" }
           - { label: "Form Note", name: "form_note", widget: "text" }
 
+      - name: "media_kit"
+        label: "Media Kit Page"
+        file: "content/pages/media-kit.json"
+        format: "json"
+        fields:
+          - { label: "Eyebrow", name: "eyebrow", widget: "string" }
+          - { label: "Headline", name: "heading", widget: "string" }
+          - { label: "Subheading", name: "subtext", widget: "text" }
+          - label: "Stats (up to 6)"
+            name: "stats"
+            widget: "list"
+            max: 6
+            fields:
+              - { label: "Label", name: "label", widget: "string" }
+              - { label: "Value", name: "value", widget: "string" }
+              - { label: "Detail", name: "detail", widget: "string" }
+          - { label: "Bio", name: "bio", widget: "text" }
+          - { label: "Services Summary", name: "services_summary", widget: "string" }
+          - { label: "Portfolio Link Label", name: "portfolio_label", widget: "string" }
+
       - name: "styling"
         label: "Styling Page (intro only)"
         file: "content/pages/styling.json"

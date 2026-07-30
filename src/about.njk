@@ -12,61 +12,69 @@ permalink: "/about.html"
 <meta property="og:description" content="Fashion & luxury content strategist — background, credentials, and how I work.">
 <meta property="og:type" content="website">
 <meta name="twitter:card" content="summary_large_image">
+<script>tailwind = { config: { theme: { extend: { colors: { gold: "#C9A961" } } } } };</script>
 <script src="https://cdn.tailwindcss.com"></script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap" rel="stylesheet">
 <style>
-  :root{
-    --paper:#000000; --paper-deep:#14110B;
-    --ink:#D4AF37; --ink-soft:#A08847;
-    --muted:#D6CBB0; --faint:#5C4F2E;
-    --line:#2A2419; --brass:#F0C550;
-  }
-
-  body{font-family:'Inter',sans-serif;background-color:var(--paper);color:var(--ink);overflow-x:hidden;}
+  body{font-family:'Inter',sans-serif;background-color:#000;color:#fff;overflow-x:hidden;}
   .serif{font-family:'Playfair Display',serif;}
-  a:focus-visible,button:focus-visible{outline:2px solid var(--ink);outline-offset:3px;}
+  a:focus-visible,button:focus-visible{outline:2px solid #fff;outline-offset:3px;}
   @media(prefers-reduced-motion:reduce){ *{transition-duration:0.01ms !important;} }
 </style>
 </head>
-<body class="antialiased selection:bg-[var(--line)] selection:text-[var(--ink)]">
+<body class="antialiased selection:bg-gray-700 selection:text-white">
 
 {% set active = "about" %}
 {% include "nav.njk" %}
 
-<section class="max-w-screen-xl mx-auto px-8 py-12 md:py-20">
+<section class="reveal max-w-screen-xl mx-auto px-8 py-12 md:py-20">
   <div class="grid grid-cols-1 md:grid-cols-12 gap-12 md:gap-16 items-center">
-    <div class="md:col-span-5 w-full aspect-[4/5] overflow-hidden bg-[var(--paper-deep)]">
-      <img data-reveal data-reveal-image src="{{ about.portrait or '/content/images/about-portrait.jpg' }}" alt="Srijayee — Fashion & Luxury Content Strategist" class="w-full h-full object-cover object-[center_20%] grayscale contrast-125 hover:grayscale-0 transition-all duration-1000 ease-in-out cursor-pointer">
+    <div class="md:col-span-5 w-full aspect-[4/5] overflow-hidden bg-gray-900">
+      <img src="{{ about.portrait or '/content/images/about-portrait.jpg' }}" alt="Srijayee — Fashion & Luxury Content Strategist" class="w-full h-full object-cover object-[center_20%] grayscale contrast-125 hover:grayscale-0 transition-all duration-1000 ease-in-out cursor-pointer">
     </div>
-    <div data-reveal class="md:col-span-7 space-y-8">
-      <p class="text-xs uppercase tracking-[0.2em] text-[var(--muted)]">{{ about.eyebrow }}</p>
-      <h1 class="text-4xl md:text-5xl serif leading-tight text-[var(--ink)]">{{ about.heading_main }} <br><span class="italic text-[var(--muted)]">{{ about.heading_emphasis }}</span></h1>
-      <div class="space-y-6 text-[var(--ink-soft)] font-light leading-relaxed max-w-2xl text-sm md:text-base">
+    <div class="md:col-span-7 space-y-8">
+      <p class="text-xs uppercase tracking-[0.2em] text-gold">{{ about.eyebrow }}</p>
+      <h1 class="text-4xl md:text-5xl serif leading-tight text-gray-200">{{ about.heading_main }} <br><span class="italic text-gold">{{ about.heading_emphasis }}</span></h1>
+      <div class="space-y-6 text-gray-400 font-light leading-relaxed max-w-2xl text-sm md:text-base">
         {% for p in about.bio.split("\n\n") %}<p>{{ p }}</p>{% endfor %}
       </div>
       {% if social.portfolio_url %}
-      <a href="{{ social.portfolio_url }}" target="_blank" rel="noopener" class="inline-block text-xs uppercase tracking-widest border-b border-[var(--line)] pb-1 text-[var(--ink-soft)] hover:text-[var(--brass)] hover:border-[var(--ink)] transition">{{ about.portfolio_link_label }}</a>
+      <a href="{{ social.portfolio_url }}" target="_blank" rel="noopener" class="inline-block text-xs uppercase tracking-widest border-b border-gray-700 pb-1 text-gray-300 hover:text-gold hover:border-gold transition">{{ about.portfolio_link_label }}</a>
       {% endif %}
     </div>
   </div>
 </section>
 
-<section class="max-w-screen-xl mx-auto px-8 py-24 border-t border-[var(--line)]">
-  <p class="text-xs uppercase tracking-[0.2em] text-[var(--muted)] mb-12">{{ about.credentials_eyebrow }}</p>
-  <div class="grid grid-cols-1 md:grid-cols-3 gap-12 md:gap-8 divide-y md:divide-y-0 md:divide-x divide-[var(--line)]">
+<section class="reveal-stagger max-w-screen-xl mx-auto px-8 py-24 border-t border-gray-900">
+  <p class="text-xs uppercase tracking-[0.2em] text-gold mb-12">{{ about.credentials_eyebrow }}</p>
+  <div class="grid grid-cols-1 md:grid-cols-3 gap-12 md:gap-8 divide-y md:divide-y-0 md:divide-x divide-gray-900">
     {% for c in about.credentials %}
-    <div data-reveal data-reveal-group="credentials" class="pt-8 md:pt-0 md:px-8">
-      <h3 class="text-xl serif mb-3 text-[var(--ink)]">{{ c.title }}</h3>
-      <p class="text-sm text-[var(--muted)] font-light leading-relaxed">{{ c.description }}</p>
+    <div class="pt-8 md:pt-0 md:px-8">
+      <h3 class="text-xl serif mb-3 text-gray-200">{{ c.title }}</h3>
+      <p class="text-sm text-gray-500 font-light leading-relaxed">{{ c.description }}</p>
     </div>
     {% endfor %}
   </div>
 </section>
 
+{% if collections.testimonials.length %}
+<section class="reveal max-w-screen-xl mx-auto px-8 py-24 border-t border-gray-900">
+  <p class="text-xs uppercase tracking-[0.2em] text-gold mb-12">What Clients Say</p>
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-16">
+    {% for t in collections.testimonials %}
+    <div class="border-l border-gray-800 pl-6">
+      <p class="serif italic text-xl md:text-2xl text-gray-300 leading-snug mb-5">"{{ t.quote }}"</p>
+      <p class="text-xs uppercase tracking-widest text-gray-500">{{ t.client_name }}{{ ', ' + t.role if t.role }}</p>
+    </div>
+    {% endfor %}
+  </div>
+</section>
+{% endif %}
+
 {% include "footer.njk" %}
 
-{% include "animations.njk" %}
 {% include "analytics.njk" %}
+{% include "motion.njk" %}
 </body>
 </html>

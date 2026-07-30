@@ -12,86 +12,80 @@ permalink: "/connect.html"
 <meta property="og:description" content="Follow the visual world behind the writing — live Pinterest boards, Instagram, and Facebook.">
 <meta property="og:type" content="website">
 <meta name="twitter:card" content="summary_large_image">
+<script>tailwind = { config: { theme: { extend: { colors: { gold: "#C9A961" } } } } };</script>
 <script src="https://cdn.tailwindcss.com"></script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap" rel="stylesheet">
 <style>
-  :root{
-    --paper:#000000; --paper-deep:#14110B;
-    --ink:#D4AF37; --ink-soft:#A08847;
-    --muted:#D6CBB0; --faint:#5C4F2E;
-    --line:#2A2419; --brass:#F0C550;
-  }
-
-  body{font-family:'Inter',sans-serif;background-color:var(--paper);color:var(--ink);overflow-x:hidden;}
+  body{font-family:'Inter',sans-serif;background-color:#000;color:#fff;overflow-x:hidden;}
   .serif{font-family:'Playfair Display',serif;}
-  a:focus-visible,button:focus-visible{outline:2px solid var(--ink);outline-offset:3px;}
-  .live-tag::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--brass);display:inline-block;}
+  a:focus-visible,button:focus-visible{outline:2px solid #fff;outline-offset:3px;}
+  .live-tag::before{content:"";width:6px;height:6px;border-radius:50%;background:#fff;display:inline-block;}
 </style>
 </head>
-<body class="antialiased selection:bg-[var(--line)] selection:text-[var(--ink)]">
+<body class="antialiased selection:bg-gray-700 selection:text-white">
 
 {% set active = "connect" %}
 {% include "nav.njk" %}
 
 <header class="max-w-screen-xl mx-auto px-8 pt-12 pb-6 max-w-2xl">
-  <p class="text-xs uppercase tracking-[0.2em] text-[var(--muted)] mb-6">{{ connect.eyebrow }}</p>
-  <h1 data-hero-reveal class="text-4xl md:text-6xl serif font-medium leading-tight text-[var(--ink)]">{{ connect.heading }}</h1>
-  <p class="text-[var(--ink-soft)] font-light text-base md:text-lg mt-6 leading-relaxed max-w-xl">{{ connect.subtext }}</p>
+  <p class="text-xs uppercase tracking-[0.2em] text-gold mb-6">{{ connect.eyebrow }}</p>
+  <h1 class="text-4xl md:text-6xl serif font-medium leading-tight text-gray-200">{{ connect.heading }}</h1>
+  <p class="text-gray-400 font-light text-base md:text-lg mt-6 leading-relaxed max-w-xl">{{ connect.subtext }}</p>
 
   <div class="flex items-center flex-wrap gap-3 mt-8" id="shareRow">
-    <span class="text-xs uppercase tracking-widest text-[var(--muted)] mr-1">Share this page</span>
-    <button class="border border-[var(--line)] px-4 py-2 text-xs text-[var(--ink-soft)] hover:border-[var(--ink)] hover:text-[var(--brass)] transition" id="copyLinkBtn" type="button">Copy Link</button>
-    <a class="border border-[var(--line)] px-4 py-2 text-xs text-[var(--ink-soft)] hover:border-[var(--ink)] hover:text-[var(--brass)] transition" id="whatsappBtn" target="_blank" rel="noopener">WhatsApp</a>
-    <a class="border border-[var(--line)] px-4 py-2 text-xs text-[var(--ink-soft)] hover:border-[var(--ink)] hover:text-[var(--brass)] transition" id="xBtn" target="_blank" rel="noopener">X</a>
-    <button class="border border-[var(--line)] px-4 py-2 text-xs text-[var(--ink-soft)] hover:border-[var(--ink)] hover:text-[var(--brass)] transition" id="nativeShareBtn" type="button" hidden>Share…</button>
+    <span class="text-xs uppercase tracking-widest text-gray-500 mr-1">Share this page</span>
+    <button class="border border-gray-700 px-4 py-2 text-xs text-gray-300 hover:border-gold hover:text-gold transition" id="copyLinkBtn" type="button">Copy Link</button>
+    <a class="border border-gray-700 px-4 py-2 text-xs text-gray-300 hover:border-gold hover:text-gold transition" id="whatsappBtn" target="_blank" rel="noopener">WhatsApp</a>
+    <a class="border border-gray-700 px-4 py-2 text-xs text-gray-300 hover:border-gold hover:text-gold transition" id="xBtn" target="_blank" rel="noopener">X</a>
+    <button class="border border-gray-700 px-4 py-2 text-xs text-gray-300 hover:border-gold hover:text-gold transition" id="nativeShareBtn" type="button" hidden>Share…</button>
   </div>
 </header>
 
 <section class="max-w-screen-xl mx-auto px-8 py-16">
   <div class="flex items-baseline justify-between flex-wrap gap-4 mb-8">
-    <h2 class="text-2xl serif text-[var(--ink)]">Live from Pinterest</h2>
-    <span class="live-tag inline-flex items-center gap-2 text-xs uppercase tracking-widest text-[var(--ink-soft)] border border-[var(--line)] rounded-full px-3 py-1">Live board</span>
+    <h2 class="text-2xl serif text-gray-200">Live from Pinterest</h2>
+    <span class="live-tag inline-flex items-center gap-2 text-xs uppercase tracking-widest text-gray-400 border border-gray-700 rounded-full px-3 py-1">Live board</span>
   </div>
-  <div class="min-h-[260px] border border-[var(--line)] bg-[var(--paper-deep)] p-6">
+  <div class="min-h-[260px] border border-gray-900 bg-gray-950 p-6">
     <a data-pin-do="embedUser" data-pin-board-width="1180" data-pin-scale-height="280" data-pin-scale-width="80" href="{{ social.pinterest_url }}">
-      <div class="text-[var(--muted)] text-sm text-center py-10">Loading pins from {{ social.pinterest_handle }}…</div>
+      <div class="text-gray-500 text-sm text-center py-10">Loading pins from {{ social.pinterest_handle }}…</div>
     </a>
   </div>
 </section>
 
 {% if connect.pinterest_boards %}
-<section class="max-w-screen-xl mx-auto px-8 py-16 border-t border-[var(--line)]">
-  <p class="text-xs uppercase tracking-[0.2em] text-[var(--muted)] mb-2">{{ connect.pinterest_boards_heading }}</p>
-  <p class="text-[var(--muted)] font-light text-sm mb-10 max-w-lg">{{ connect.pinterest_boards_note }}</p>
+<section class="max-w-screen-xl mx-auto px-8 py-16 border-t border-gray-900">
+  <p class="text-xs uppercase tracking-[0.2em] text-gold mb-2">{{ connect.pinterest_boards_heading }}</p>
+  <p class="text-gray-500 font-light text-sm mb-10 max-w-lg">{{ connect.pinterest_boards_note }}</p>
   <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
     {% for b in connect.pinterest_boards %}
-    <div data-reveal data-reveal-group="pinboards" class="border border-[var(--line)] p-6 flex flex-col">
-      <span class="text-xs uppercase tracking-widest text-[var(--muted)] mb-2">{{ b.pillar }}</span>
-      <a href="{{ b.url }}" target="_blank" rel="noopener" class="serif text-xl text-[var(--ink)] hover:text-[var(--brass)] transition mb-4">{{ b.board_name }}</a>
-      <a href="{{ b.related_href }}" class="mt-auto text-xs uppercase tracking-widest border-b border-[var(--line)] pb-1 text-[var(--ink-soft)] hover:text-[var(--brass)] hover:border-[var(--ink)] transition self-start">{{ b.related_label }}</a>
+    <div class="border border-gray-900 p-6 flex flex-col">
+      <span class="text-xs uppercase tracking-widest text-gray-600 mb-2">{{ b.pillar }}</span>
+      <a href="{{ b.url }}" target="_blank" rel="noopener" class="serif text-xl text-gray-200 hover:text-gold transition mb-4">{{ b.board_name }}</a>
+      <a href="{{ b.related_href }}" class="mt-auto text-xs uppercase tracking-widest border-b border-gray-700 pb-1 text-gray-400 hover:text-gold hover:border-gold transition self-start">{{ b.related_label }}</a>
     </div>
     {% endfor %}
   </div>
 </section>
 {% endif %}
 
-<section class="max-w-screen-xl mx-auto px-8 py-24 border-t border-[var(--line)]">
-  <p class="text-xs uppercase tracking-[0.2em] text-[var(--muted)] mb-12">{{ connect.feeds_eyebrow }}</p>
-  <div class="grid grid-cols-1 md:grid-cols-3 gap-12 md:gap-8 divide-y md:divide-y-0 md:divide-x divide-[var(--line)]">
+<section class="max-w-screen-xl mx-auto px-8 py-24 border-t border-gray-900">
+  <p class="text-xs uppercase tracking-[0.2em] text-gold mb-12">{{ connect.feeds_eyebrow }}</p>
+  <div class="grid grid-cols-1 md:grid-cols-3 gap-12 md:gap-8 divide-y md:divide-y-0 md:divide-x divide-gray-900">
     {% for f in connect.feeds %}
-    <a href="{{ f.link_href }}" target="_blank" rel="noopener" data-reveal data-reveal-group="feeds" class="group pt-8 md:pt-0 md:px-8 flex flex-col items-start">
-      <span class="text-xs uppercase tracking-widest text-[var(--muted)] mb-4">{{ f.platform }}</span>
-      <h3 class="text-xl serif mb-4 text-[var(--ink)] group-hover:text-[var(--brass)] transition">{{ f.handle }}</h3>
-      <p class="text-sm text-[var(--muted)] font-light leading-relaxed flex-grow">{{ f.description }}</p>
-      <span class="mt-6 text-xs uppercase tracking-widest border-b border-[var(--line)] pb-1 text-[var(--ink-soft)] group-hover:text-[var(--brass)] group-hover:border-[var(--ink)] transition">{{ f.link_label }}</span>
+    <a href="{{ f.link_href }}" target="_blank" rel="noopener" class="group pt-8 md:pt-0 md:px-8 flex flex-col items-start">
+      <span class="text-xs uppercase tracking-widest text-gray-500 mb-4">{{ f.platform }}</span>
+      <h3 class="text-xl serif mb-4 text-gray-200 group-hover:text-gold transition">{{ f.handle }}</h3>
+      <p class="text-sm text-gray-500 font-light leading-relaxed flex-grow">{{ f.description }}</p>
+      <span class="mt-6 text-xs uppercase tracking-widest border-b border-gray-700 pb-1 text-gray-400 group-hover:text-gold group-hover:border-gold transition">{{ f.link_label }}</span>
     </a>
     {% endfor %}
   </div>
 </section>
 
-<footer class="border-t border-[var(--line)] py-16">
-  <div class="max-w-screen-2xl mx-auto px-8 flex flex-col md:flex-row justify-between items-center text-xs uppercase tracking-[0.15em] text-[var(--muted)] gap-6">
+<footer class="border-t border-gray-900 py-16">
+  <div class="max-w-screen-2xl mx-auto px-8 flex flex-col md:flex-row justify-between items-center text-xs uppercase tracking-[0.15em] text-gray-600 gap-6">
     <p>© 2026 Srijayee Ghosh. All Rights Reserved.</p>
   </div>
 </footer>
@@ -132,7 +126,7 @@ permalink: "/connect.html"
   }
 })();
 </script>
-{% include "animations.njk" %}
 {% include "analytics.njk" %}
+{% include "motion.njk" %}
 </body>
 </html>
