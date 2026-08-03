@@ -7,6 +7,14 @@
   "cta_primary_href": "/client-work.html",
   "cta_secondary_label": "Start a Conversation",
   "cta_secondary_href": "/contact.html",
+  "featured_eyebrow": "Selected Heritage Brands",
+  "featured_heading": "Proven Digital Impact",
+  "journal_eyebrow": "The Edit Letter",
+  "journal_heading": "Monthly Trend Notes & Analysis",
+  "journal_items": [
+    { "category": "Trend Reports", "title": "Where Fashion is Heading Next", "description": "An exploration of shifts across emerging materials, fast-moving aesthetics, and how modern consumer alignment shapes luxury infrastructure.", "link_label": "Read Asset", "link_href": "/trend-reports/" },
+    { "category": "Brand Analysis", "title": "How Luxury Brands Build Identity", "description": "Deconstructing brand-level narratives from traditional heritage houses, highlighting the balance of preservation versus high-vibrancy tech trends.", "link_label": "Read Asset", "link_href": "/luxury-brand-analysis/" }
+  ],
   "talent_eyebrow": "The Talent",
   "talent_heading_main": "From digital precision",
   "talent_heading_emphasis": "to luxury narrative.",

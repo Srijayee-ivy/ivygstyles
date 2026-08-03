@@ -13,12 +13,12 @@ image: "/content/images/case-shoppers-stop.jpg"
 order: 7
 ---
 
-**S22342D23DRWN** — Put your elegant foot forward with this full-sleeved, collared mini dress crafted from crinkled crepe. With its classy wine shade, this modern dress is ideal for pairing with black platform pumps or stilettos. Complete the look with gold accessories and a compact clutch. *(51 words)*
+**S22MCTRCRSOCK02** — Grace up your formal attire with these classic, seamless, cushioned cotton rich crew socks from Stop. You can pair it up with casual white sneakers or formal cobalt black oxfords. *(30 words)*
 
-**S22342FPANTS1** — Say no to boring workwear! Make a statement with this pair of fitted and tapering full-length black trousers. Simply pair it with a formal white shirt or a loose pastel semi-formal shirt and classic black kitten heels for the perfect work look. *(42 words)*
+**S22EDIN1657STBK** — Stay classy with this captivating classic Satchel Handbag by Elliza Donatein. The compact shape with multipurpose compartments makes it an obvious choice for working ladies. Gracefully carry this bag along with your regular formal slim-fit black pants and white blazer. Rock the look in nude Stilettoes. *(46 words)*
 
-**S22STEPP01001** — Go traditional, one kurta at a time, with this stunning mustard knee-length piece. With golden embellished prints, a Mandarin collar, and 3/4th sleeves with button detailing, style this with gold drop earrings, a white churidar or ankle-length pants, and block heels for a classic look. *(45 words)*
+**S22STEPP25** — Glam up in this attractive wine straight kurta by Stop. This woven piece comes in mandarin neckline and three quarter sleeves and all over contrast prints. This straight fit casual wear rayon kurta can be paired with cropped blue jeans and black block heels to establish a chic fashion sense. *(50 words)*
 
-**S22STEPP11001** — This summer, go for a refreshing look with this brilliant aqua-coloured knee-length kurta crafted with a classic Mandarin collar and 3/4th sleeves. Style it with matching palazzos, heeled sandals and minimalistic jewellery for the perfect summer look. *(37 words)*
+**S22B2ERCFCHBMLT** — Glam up your regular kitchen with this wooden floral cheese board by Back to Earth. The sleek floral print not only is gorgeous, but also has a cheerful Springy hue to be used all year long in any occasion. Be admired for your fancy cheeseboard as you serve your guests on a house party. *(54 words)*
 
-*(4 of hundreds of SKUs delivered across this catalogue batch for Shoppers Stop, each one styled individually within a tight word ceiling.)*
+*(4 of 937 verified rows carrying Srijayee's byline across this catalogue's production trackers — spanning menswear, handbags, ethnic wear, and home, each styled individually within a tight word ceiling.)*

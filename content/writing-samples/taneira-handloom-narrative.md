@@ -13,6 +13,12 @@ image: "/content/images/case-taneira.jpg"
 order: 5
 ---
 
+**Nouveau Organza Tissue — Block Print Embroidery, Light Pink, Light Festive**
+
+This elegant Nouveau Organza Tissue saree comes in eye-soothing block print embroidery on a light pink base radiating festivity.
+
+Organza Tissue sarees are famous for their sheer appeal and lightweight plain weave. Traditionally made from silk, this fine woven luxe tissue organza is a treat to the eyes. This uniquely blended saree is flowy and comfortable to wear. The yellow kantha embroidery on block print pattern on the pallu and the edge of the solid light pink base creates a subtle yet royal appearance. Create a style statement during festivities with this sophisticated ethnic drape by pairing this with a solid pink blouse.
+
 **Bengal Mulmul — Block Print, Dark Yellow, Everyday Corporate**
 
 Drape in elegance with this handfeel Bengal mulmul saree that comes in exclusive block print on yellow base.
@@ -25,4 +31,4 @@ This lightweight Bengal cotton saree comes in beige base and a thick embroidered
 
 Originated in Bengal, Bengal cotton sarees are famous for their light weight and airy texture ideal for every season, especially summers. This saree comes in a decorative woven pallu and artistic motif on thick borders. This piece has a pleasing beige tone combined with light pink embroidery that matches with contemporary taste. This Bengal saree is ideal as everyday traditional wear once it is paired with a designer pink blouse.
 
-*(2 of 3 product descriptions from the delivered set, written for Taneira.)*
+*(All 3 product descriptions from the delivered set, written for Taneira.)*

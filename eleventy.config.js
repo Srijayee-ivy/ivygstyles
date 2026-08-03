@@ -159,6 +159,10 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addPassthroughCopy({ "admin": "admin" });
   eleventyConfig.addPassthroughCopy({ "robots.txt": "robots.txt" });
   eleventyConfig.addPassthroughCopy({ "static/blog-post-redirect.html": "blog/post.html" });
+  eleventyConfig.addPassthroughCopy({ "static/favicon.ico": "favicon.ico" });
+  eleventyConfig.addPassthroughCopy({ "static/favicon-32x32.png": "favicon-32x32.png" });
+  eleventyConfig.addPassthroughCopy({ "static/favicon-16x16.png": "favicon-16x16.png" });
+  eleventyConfig.addPassthroughCopy({ "static/apple-touch-icon.png": "apple-touch-icon.png" });
 
   eleventyConfig.addFilter("dateFormat", (dateObj) => {
     if (!dateObj) return "";

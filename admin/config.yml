@@ -180,6 +180,20 @@ collections:
           - { label: "Primary Button Link", name: "cta_primary_href", widget: "string" }
           - { label: "Secondary Button Label", name: "cta_secondary_label", widget: "string" }
           - { label: "Secondary Button Link", name: "cta_secondary_href", widget: "string" }
+          - { label: "Featured Work — Eyebrow", name: "featured_eyebrow", widget: "string" }
+          - { label: "Featured Work — Heading", name: "featured_heading", widget: "string" }
+          - { label: "Journal Teaser — Eyebrow", name: "journal_eyebrow", widget: "string" }
+          - { label: "Journal Teaser — Heading", name: "journal_heading", widget: "string" }
+          - label: "Journal Teaser — Items"
+            name: "journal_items"
+            widget: "list"
+            min: 1
+            fields:
+              - { label: "Category", name: "category", widget: "string" }
+              - { label: "Title", name: "title", widget: "string" }
+              - { label: "Description", name: "description", widget: "text" }
+              - { label: "Link Label", name: "link_label", widget: "string" }
+              - { label: "Link URL", name: "link_href", widget: "string" }
           - { label: "Talent Section — Eyebrow", name: "talent_eyebrow", widget: "string" }
           - { label: "Talent Section — Heading (main)", name: "talent_heading_main", widget: "string" }
           - { label: "Talent Section — Heading (emphasis)", name: "talent_heading_emphasis", widget: "string" }

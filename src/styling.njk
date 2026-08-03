@@ -6,6 +6,10 @@ permalink: "/styling.html"
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" type="image/x-icon" href="/favicon.ico">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
 <title>Styling | Srijayee</title>
 <link rel="canonical" href="https://ivygstyles.pages.dev{{ page.url }}">
 <meta name="description" content="Personal styling guidance and visual inspiration from @ivygstyles.">
@@ -15,22 +19,22 @@ permalink: "/styling.html"
 <meta name="twitter:card" content="summary_large_image">
 <script src="https://cdn.tailwindcss.com"></script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&display=swap" rel="stylesheet">
 <style>
   :root{
-    --paper:#000000; --paper-deep:#14110B;
-    --ink:#D4AF37; --ink-soft:#A08847;
-    --muted:#D6CBB0; --faint:#5C4F2E;
-    --line:#2A2419; --brass:#F0C550;
+    --paper:#FBFBFA; --paper-deep:#EAE8E4;
+    --ink:#1A1A1A; --ink-soft:#4A443C;
+    --muted:#8C8880; --faint:#EFEDE8;
+    --line:#E6E3DD; --brass:#B9975A;
   }
 
-  body{font-family:'Inter',sans-serif;background-color:var(--paper);color:var(--ink);overflow-x:hidden;}
-  .serif{font-family:'Playfair Display',serif;}
+  body{font-family:'Plus Jakarta Sans',sans-serif;background-color:var(--paper);color:var(--ink);overflow-x:hidden;}
+  .serif{font-family:'Cormorant Garamond',serif;}
   a:focus-visible,button:focus-visible{outline:2px solid var(--ink);outline-offset:3px;}
   .tile{position:relative;overflow:hidden;background:var(--paper-deep);}
   .tile:not(.has-image)::after{content:"";position:absolute;inset:0;background:repeating-linear-gradient(135deg,rgba(240,197,80,0.06) 0 2px,transparent 2px 26px);}
   .tile .cap{position:absolute;bottom:0;left:0;right:0;z-index:10;padding:18px;background:linear-gradient(to top, rgba(0,0,0,0.75), transparent);}
-  .tile .cap span{font-family:'Playfair Display',serif;font-style:italic;color:#f2f2f2;}
+  .tile .cap span{font-family:'Cormorant Garamond',serif;font-style:italic;color:#f2f2f2;}
   .tile img{width:100%;height:100%;object-fit:cover;filter:grayscale(0.1);transition:filter .8s ease, transform 1.2s ease;}
   .tile:hover img{filter:grayscale(0);transform:scale(1.03);}
   .t1{background:linear-gradient(155deg,#241f14 0%,#0a0805 100%);}

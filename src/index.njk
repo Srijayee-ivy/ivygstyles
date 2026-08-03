@@ -6,6 +6,10 @@ permalink: "/index.html"
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" type="image/x-icon" href="/favicon.ico">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
 <title>Srijayee | Fashion &amp; Luxury Content Strategist</title>
 <link rel="canonical" href="https://ivygstyles.pages.dev{{ page.url }}">
 <meta name="description" content="Writing brand narratives, building content strategy, and offering personal styling guidance for fashion and luxury brands.">
@@ -33,19 +37,47 @@ permalink: "/index.html"
 </script>
 <script src="https://cdn.tailwindcss.com"></script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&display=swap" rel="stylesheet">
 <style>
   :root{
-    --paper:#000000; --paper-deep:#14110B;
-    --ink:#D4AF37; --ink-soft:#A08847;
-    --muted:#D6CBB0; --faint:#5C4F2E;
-    --line:#2A2419; --brass:#F0C550;
+    --paper:#FBFBFA; --paper-deep:#EAE8E4;
+    --ink:#1A1A1A; --ink-soft:#4A443C;
+    --muted:#8C8880; --faint:#EFEDE8;
+    --line:#E6E3DD; --brass:#B9975A;
   }
 
-  body{font-family:'Inter',sans-serif;background-color:var(--paper);color:var(--ink);overflow-x:hidden;scroll-behavior:smooth;}
-  .serif{font-family:'Playfair Display',serif;}
+  body{font-family:'Plus Jakarta Sans',sans-serif;background-color:var(--paper);color:var(--ink);overflow-x:hidden;scroll-behavior:smooth;}
+  .serif{font-family:'Cormorant Garamond',serif;}
   a:focus-visible,button:focus-visible{outline:2px solid var(--ink);outline-offset:3px;}
   @media (prefers-reduced-motion: reduce){ *{transition-duration:0.01ms !important;} }
+
+  /* Aurora Background — adapted from Aceternity UI, recolored to the site's
+     black/gold palette and rebuilt in vanilla CSS (the site has no React/shadcn). */
+  .aurora-wrap{position:relative;overflow:hidden;}
+  .aurora-bg{
+    pointer-events:none;position:absolute;inset:0;z-index:0;overflow:hidden;
+  }
+  .aurora-bg-layer{
+    position:absolute;top:-20%;left:-20%;width:140%;height:140%;
+    background-image:
+      repeating-linear-gradient(100deg,var(--brass) 6%,var(--ink) 14%,var(--ink-soft) 20%,var(--faint) 28%,var(--brass) 36%),
+      repeating-linear-gradient(100deg,var(--paper) 0%,var(--paper) 6%,transparent 10%,transparent 14%,var(--paper) 18%);
+    background-size:200% 200%,150% 100%;
+    filter:blur(60px) saturate(140%);
+    opacity:0.35;
+    mix-blend-mode:screen;
+    will-change:transform;
+    animation:aurora 25s ease-in-out infinite alternate;
+  }
+  .aurora-bg::after{
+    content:"";position:absolute;inset:0;z-index:1;
+    background:radial-gradient(ellipse at 50% 0%,rgba(0,0,0,0) 0%,var(--paper) 75%);
+  }
+  @keyframes aurora{
+    from{transform:translate3d(0,0,0) rotate(0deg);}
+    to{transform:translate3d(-8%,4%,0) rotate(4deg);}
+  }
+  @media (prefers-reduced-motion: reduce){ .aurora-bg-layer{animation:none;} }
 </style>
 </head>
 <body class="antialiased selection:bg-[var(--line)] selection:text-[var(--ink)]">
@@ -53,21 +85,28 @@ permalink: "/index.html"
 {% set active = "home" %}
 {% include "nav.njk" %}
 
-<header class="max-w-screen-2xl mx-auto px-8 pt-12 pb-16 md:pt-20 md:pb-24 flex flex-col items-start">
-  <p data-hero-reveal class="text-xs uppercase tracking-[0.2em] text-[var(--muted)] mb-8 border-b border-[var(--line)] pb-2">{{ home.eyebrow }}</p>
-  <h1 data-hero-reveal class="text-5xl md:text-7xl lg:text-8xl serif font-medium leading-tight text-[var(--ink)] max-w-5xl">
-    {{ home.heading_main }} <span class="italic text-[var(--muted)] block md:inline mt-2 md:mt-0">{{ home.heading_emphasis }}</span>
-  </h1>
-  <p data-hero-reveal class="text-[var(--ink-soft)] font-light text-lg md:text-xl max-w-2xl mt-10 leading-relaxed">{{ home.subtext }}</p>
-  <div data-hero-reveal class="flex flex-wrap gap-4 mt-10">
-    <a href="{{ home.cta_primary_href }}" data-magnetic class="inline-block border border-[var(--line)] px-8 py-4 text-xs uppercase tracking-widest text-[var(--ink-soft)] hover:bg-[var(--ink)] hover:text-[var(--paper)] hover:border-[var(--ink)] transition-all duration-500">{{ home.cta_primary_label }}</a>
-    <a href="{{ home.cta_secondary_href }}" data-magnetic class="inline-block bg-[var(--ink)] text-[var(--paper)] px-8 py-4 text-xs uppercase tracking-widest hover:bg-[var(--ink-soft)] transition-all duration-500">{{ home.cta_secondary_label }}</a>
-  </div>
-</header>
+<div class="aurora-wrap">
+  <div class="aurora-bg" aria-hidden="true"><div class="aurora-bg-layer"></div></div>
+  <header class="relative z-10 max-w-screen-2xl mx-auto px-8 pt-12 pb-16 md:pt-20 md:pb-24 flex flex-col items-start">
+    <p data-hero-reveal class="text-[11px] uppercase tracking-[0.25em] font-medium text-[var(--muted)] mb-8">{{ home.eyebrow }}</p>
+    <h1 data-hero-reveal class="text-5xl sm:text-6xl md:text-7xl lg:text-8xl serif font-light leading-[1.05] tracking-tight text-[var(--ink)] max-w-5xl">
+      {{ home.heading_main }} <span class="italic text-[var(--ink-soft)] block md:inline mt-2 md:mt-0">{{ home.heading_emphasis }}</span>
+    </h1>
+    <p data-hero-reveal class="text-[var(--ink-soft)] font-light text-sm md:text-base max-w-xl mt-10 leading-relaxed tracking-wide">{{ home.subtext }}</p>
+    <div data-hero-reveal class="flex flex-wrap gap-4 mt-10">
+      <a href="{{ home.cta_primary_href }}" data-magnetic class="inline-block border border-[var(--line)] px-8 py-4 text-xs uppercase tracking-[0.2em] text-[var(--ink-soft)] hover:bg-[var(--ink)] hover:text-[var(--paper)] hover:border-[var(--ink)] transition-all duration-700 ease-[cubic-bezier(0.25,1,0.5,1)]">{{ home.cta_primary_label }}</a>
+      <a href="{{ home.cta_secondary_href }}" data-magnetic class="inline-block bg-[var(--ink)] text-[var(--paper)] px-8 py-4 text-xs uppercase tracking-[0.2em] hover:bg-[var(--ink-soft)] transition-all duration-700 ease-[cubic-bezier(0.25,1,0.5,1)]">{{ home.cta_secondary_label }}</a>
+    </div>
+  </header>
+</div>
 
 <hr class="border-t border-[var(--line)] max-w-screen-2xl mx-auto">
 
 <section id="featured" class="w-full">
+  <div class="max-w-screen-2xl mx-auto px-8 pt-20 pb-10 md:pt-28 md:pb-14 flex flex-col md:flex-row md:items-baseline justify-between gap-4">
+    <span class="text-[11px] tracking-[0.25em] uppercase font-medium text-[var(--muted)]">{{ home.featured_eyebrow }}</span>
+    <h2 class="serif font-light text-4xl md:text-5xl text-[var(--ink)]">{{ home.featured_heading }}</h2>
+  </div>
   {% set featuredCaseStudies = collections.caseStudies | onlyFeatured %}
   {% if featuredCaseStudies.length %}
     {% for c in featuredCaseStudies | limit(3) %}
@@ -98,6 +137,23 @@ permalink: "/index.html"
     <p class="text-[var(--muted)] text-sm">Featured work will appear here once published.</p>
   </div>
   {% endif %}
+</section>
+
+<section id="journal" class="max-w-screen-md mx-auto px-8 py-24 md:py-36 border-t border-[var(--line)]">
+  <div data-reveal class="text-center space-y-4 mb-16 md:mb-20">
+    <span class="text-[11px] tracking-[0.25em] uppercase font-medium text-[var(--muted)]">{{ home.journal_eyebrow }}</span>
+    <h2 class="serif font-light text-4xl md:text-5xl text-[var(--ink)]">{{ home.journal_heading }}</h2>
+  </div>
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-16 md:gap-12">
+    {% for j in home.journal_items %}
+    <div data-reveal data-reveal-group="journal" class="flex flex-col items-start">
+      <span class="text-[10px] tracking-[0.2em] uppercase font-medium text-[var(--brass)] mb-3">{{ j.category }}</span>
+      <h3 class="serif text-2xl md:text-3xl font-light text-[var(--ink)] mb-4 leading-snug">{{ j.title }}</h3>
+      <p class="text-sm text-[var(--muted)] font-light leading-relaxed">{{ j.description }}</p>
+      <a href="{{ j.link_href }}" class="mt-6 text-xs uppercase tracking-widest border-b border-[var(--line)] pb-1 text-[var(--ink-soft)] hover:text-[var(--brass)] hover:border-[var(--ink)] transition">{{ j.link_label }} →</a>
+    </div>
+    {% endfor %}
+  </div>
 </section>
 
 <section id="talent" class="max-w-screen-xl mx-auto px-8 py-24 border-t border-[var(--line)] mt-12">

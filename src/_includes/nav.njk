@@ -52,16 +52,18 @@
   <!-- Mobile: search + hamburger -->
   <div class="flex items-center gap-5 md:hidden">
     <a href="/search.html" aria-label="Search" class="text-[var(--ink-soft)]"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg></a>
-    <button id="drawerToggle" aria-label="Open menu" aria-expanded="false" class="text-[var(--ink)]">
-      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+    <button id="drawerToggle" aria-label="Open menu" aria-expanded="false" class="text-[var(--ink)] flex flex-col justify-between w-5 h-4">
+      <span id="bar1" class="w-full h-[1.5px] bg-current transform transition-transform duration-300 origin-left"></span>
+      <span id="bar2" class="w-full h-[1.5px] bg-current transition-opacity duration-300"></span>
+      <span id="bar3" class="w-full h-[1.5px] bg-current transform transition-transform duration-300 origin-left"></span>
     </button>
   </div>
 </nav>
 
 <!-- Mobile drawer -->
-<div id="mobileDrawer" class="md:hidden fixed inset-0 z-40 hidden">
-  <div class="absolute inset-0 bg-[var(--paper)]/80" id="drawerOverlay"></div>
-  <div class="absolute right-0 top-0 h-full w-[82%] max-w-sm bg-[var(--paper)] border-l border-[var(--line)] overflow-y-auto">
+<div id="mobileDrawer" class="md:hidden fixed inset-0 z-40 pointer-events-none">
+  <div class="absolute inset-0 bg-[var(--paper)]/80 opacity-0 transition-opacity duration-500 ease-[cubic-bezier(0.25,1,0.5,1)]" id="drawerOverlay"></div>
+  <div class="absolute right-0 top-0 h-full w-[82%] max-w-sm bg-[var(--paper)] border-l border-[var(--line)] overflow-y-auto transform translate-x-full transition-transform duration-500 ease-[cubic-bezier(0.25,1,0.5,1)]" id="drawerPanel">
     <div class="flex justify-end p-6">
       <button id="drawerClose" aria-label="Close menu" class="text-[var(--ink-soft)]">
         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
@@ -73,7 +75,7 @@
       <a href="/services.html" class="py-3 border-b border-[var(--line)]">Services</a>
       <a href="/styling.html" class="py-3 border-b border-[var(--line)]">Styling</a>
       <a href="/about.html" class="py-3 border-b border-[var(--line)]">About</a>
-      <p class="pt-5 pb-1 text-xs uppercase tracking-widest text-[var(--muted)] not-italic" style="font-family:'Inter',sans-serif;">Journal</p>
+      <p class="pt-5 pb-1 text-xs uppercase tracking-widest text-[var(--muted)] not-italic" style="font-family:'Plus Jakarta Sans',sans-serif;">Journal</p>
       <a href="/blog/" class="py-2 pl-4 text-base border-b border-[var(--line)]">All Posts</a>
       <a href="/editors-desk.html" class="py-2 pl-4 text-base border-b border-[var(--line)]">Editor's Desk</a>
       <a href="/trend-reports/" class="py-2 pl-4 text-base border-b border-[var(--line)]">Trend Reports</a>
@@ -92,21 +94,47 @@
   var closeBtn = document.getElementById('drawerClose');
   var overlay = document.getElementById('drawerOverlay');
   var drawer = document.getElementById('mobileDrawer');
-  if (!toggle || !drawer) return;
+  var panel = document.getElementById('drawerPanel');
+  var bar1 = document.getElementById('bar1');
+  var bar2 = document.getElementById('bar2');
+  var bar3 = document.getElementById('bar3');
+  if (!toggle || !drawer || !panel) return;
+
+  var isOpen = false;
 
   function openDrawer(){
-    drawer.classList.remove('hidden');
+    isOpen = true;
+    drawer.classList.remove('pointer-events-none');
+    drawer.classList.add('pointer-events-auto');
+    overlay.classList.remove('opacity-0');
+    overlay.classList.add('opacity-100');
+    panel.classList.remove('translate-x-full');
+    panel.classList.add('translate-x-0');
     document.body.style.overflow = 'hidden';
     toggle.setAttribute('aria-expanded', 'true');
+    if (bar1) bar1.style.transform = 'rotate(45deg) translateY(2px)';
+    if (bar2) bar2.style.opacity = '0';
+    if (bar3) bar3.style.transform = 'rotate(-45deg) translateY(-2px)';
   }
   function closeDrawer(){
-    drawer.classList.add('hidden');
+    isOpen = false;
+    drawer.classList.remove('pointer-events-auto');
+    drawer.classList.add('pointer-events-none');
+    overlay.classList.remove('opacity-100');
+    overlay.classList.add('opacity-0');
+    panel.classList.remove('translate-x-0');
+    panel.classList.add('translate-x-full');
     document.body.style.overflow = '';
     toggle.setAttribute('aria-expanded', 'false');
+    if (bar1) bar1.style.transform = 'none';
+    if (bar2) bar2.style.opacity = '1';
+    if (bar3) bar3.style.transform = 'none';
   }
-  toggle.addEventListener('click', openDrawer);
+  toggle.addEventListener('click', function(){
+    if (!isOpen) openDrawer(); else closeDrawer();
+  });
   closeBtn.addEventListener('click', closeDrawer);
   overlay.addEventListener('click', closeDrawer);
-  document.addEventListener('keydown', function(e){ if (e.key === 'Escape') closeDrawer(); });
+  document.addEventListener('keydown', function(e){ if (e.key === 'Escape' && isOpen) closeDrawer(); });
 })();
 </script>
