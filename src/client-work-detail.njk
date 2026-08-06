@@ -96,11 +96,22 @@ eleventyComputed:
     </div>
     {% endif %}
   </div>
-  {% set relatedSample = collections.writingSamples | selectattr("external_link", "equalto", "/client-work/" + case.slug + "/") | first %}
-  {% if relatedSample %}
+  {% set matchCount = 0 %}
+  {% for s in collections.writingSamples %}
+    {% if s.external_link == "/client-work/" + case.slug + "/" %}
+      {% set matchCount = matchCount + 1 %}
+    {% endif %}
+  {% endfor %}
+  {% if matchCount > 0 %}
   <div class="mt-10 pt-8 border-t border-[var(--line)]">
-    <p class="text-xs uppercase tracking-widest text-[var(--muted)] mb-3">Read the Writing Sample</p>
-    <a href="/writing-samples/{{ relatedSample.slug }}/" class="inline-block text-[var(--ink)] serif italic text-xl hover:text-[var(--brass)] transition">{{ relatedSample.title }} →</a>
+    <p class="text-xs uppercase tracking-widest text-[var(--muted)] mb-3">{% if matchCount == 1 %}Read the Writing Sample{% else %}Read the Writing Samples{% endif %}</p>
+    <div class="flex flex-col gap-2">
+      {% for s in collections.writingSamples %}
+        {% if s.external_link == "/client-work/" + case.slug + "/" %}
+        <a href="/writing-samples/{{ s.slug }}/" class="inline-block text-[var(--ink)] serif italic text-xl hover:text-[var(--brass)] transition">{{ s.title }} →</a>
+        {% endif %}
+      {% endfor %}
+    </div>
   </div>
   {% endif %}
 </section>
